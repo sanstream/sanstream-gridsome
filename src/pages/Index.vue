@@ -6,14 +6,22 @@
 
     <h1>Hello, world!</h1>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
+    <ol>
+      <!-- {{$page}} -->
+      <li
+        v-for="edge in $page.allSanityPost.edges"
+        :key="edge.node.id"
+        >
+        <article>
+          <img
+            :src="edge.node.mainImage ? edge.node.mainImage.asset.url : ''"
+          />
+          <h1>
+            {{edge.node.title}}
+          </h1>
+        </article>
+      </li>
+    </ol>
 
   </Layout>
 </template>
@@ -22,12 +30,46 @@
 export default {
   metaInfo: {
     title: 'Hello, world!'
+  },
+
+  mount () {
+    console.log(this)
   }
 }
 </script>
 
+<page-query>
+query {
+  allSanityPost (sortBy:"_createdAt") {
+    edges {
+      node {
+        id
+        title
+        mainImage {
+          _key
+          asset {
+            assetId
+            url
+            label
+          }
+        }
+        slug {
+          current
+        }
+        markDownBody
+        publishedAt
+        _createdAt
+        categories {
+          title
+        }
+      }
+    }
+  }
+}
+</page-query>
 <style>
 .home-links a {
   margin-right: 1rem;
 }
 </style>
+
