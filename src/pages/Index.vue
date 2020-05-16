@@ -1,13 +1,6 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
     <ol>
-      <!-- {{$page}} -->
       <li
         v-for="edge in $page.allSanityPost.edges"
         :key="edge.node.id"
@@ -40,7 +33,7 @@ export default {
 
 <page-query>
 query {
-  allSanityPost (sortBy:"_createdAt") {
+  allSanityPost (sortBy:"publishedAt") {
     edges {
       node {
         id
@@ -53,10 +46,6 @@ query {
             label
           }
         }
-        slug {
-          current
-        }
-        markDownBody
         publishedAt
         _createdAt
         categories {
