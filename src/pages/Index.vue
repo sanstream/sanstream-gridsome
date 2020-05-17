@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <ol>
+    <ol v-if="$page.allSanityPost">
       <li
         v-for="edge in $page.allSanityPost.edges"
         :key="edge.node.id"
