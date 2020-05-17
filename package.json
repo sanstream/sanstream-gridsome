@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "gridsome": "^0.7.0",
-    "gridsome-source-sanity": "^1.0.5"
+    "gridsome-source-sanity": "^1.0.5",
+    "vue-types": "^1.7.0"
   }
 }
