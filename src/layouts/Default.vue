@@ -4,15 +4,18 @@
     <main>
       <slot/>
     </main>
+    <PageFooter/>
   </div>
 </template>
 
 <script>
 import PageHeader from '../components/patterns/PageHeader';
+import PageFooter from '../components/patterns/PageFooter';
 
 export default {
   components: {
     PageHeader,
+    PageFooter,
   },
 }
 </script>
@@ -43,17 +46,43 @@ query {
 .sanstream-intro-text {
   font-family: 'Armata', "Helvetica", sans-serif;
   color: var(--text-colour);
+  font-size: 100%;
 }
 
-.sanstream-intro-text a {
+.sanstream-heading {
+  font-family: 'Armata', "Helvetica", sans-serif;
+  color: var(--text-colour);
+}
+
+.sanstream-special-text {
+  font-family: 'Fira Code', monospace;
+  color: var(--text-colour);
+}
+
+a[href] {
   color: var(--sanstream-orange);
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+}
+
+a[href]:hover {
+  color: var(--sanstream-orange);
+  text-decoration: none;
+  border-bottom: 1px solid var(--sanstream-yellow);
 }
 
 body {
   margin:0;
   padding:0;
-  line-height: 1.5;
+  line-height: 1.5em;
   background-color: var(--colour-background);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
 .PageHeader {
