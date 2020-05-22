@@ -5,7 +5,8 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Studio Sanstream',
+  titleTemplate: '%s — Studio Sanstream',
   plugins: [
     {
       use: 'gridsome-source-sanity',

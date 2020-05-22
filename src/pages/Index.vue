@@ -1,55 +1,50 @@
 <template>
   <Layout>
-    <ol v-if="$page.allSanityPost">
-      <li
-        v-for="edge in $page.allSanityPost.edges"
+    <template v-if="$page.allSanityLandingPage">
+      <template v-for="edge in $page.allSanityLandingPage.edges">
+        <main
+        class="sanstream-grid-layout-full-viewport"
         :key="edge.node.id"
         >
-        <article>
-          <img
-            :src="edge.node.mainImage ? edge.node.mainImage.asset.url : ''"
+          <TextAndPictureSequence
+            class=""
+            :sequence="edge.node.pictureAndTextSequence"
           />
-          <h1>
-            {{edge.node.title}}
-          </h1>
-        </article>
-      </li>
-    </ol>
-
+        </main>
+      </template>
+    </template>
   </Layout>
 </template>
 
 <script>
+import TextAndPictureSequence from '../components/patterns/TextAndPictureSequence'
+
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'homepage',
   },
 
-  mount () {
-    console.log(this)
-  }
+  components: {
+    TextAndPictureSequence,
+  },
 }
 </script>
 
 <page-query>
 query {
-  allSanityPost (sortBy:"publishedAt") {
+  allSanityLandingPage (filter: {forPath: {eq: "/"}}) {
     edges {
       node {
-        id
         title
-        mainImage {
+        pictureAndTextSequence {
           _key
-          asset {
-            assetId
-            url
-            label
+          picture {
+            altText
+            asset {
+              url
+            }
           }
-        }
-        publishedAt
-        _createdAt
-        categories {
-          title
+          _rawText
         }
       }
     }

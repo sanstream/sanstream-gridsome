@@ -30,7 +30,7 @@ query {
   --colour-background: #ffffff;
   --sanstream-orange: #FF5C00;
   --sanstream-yellow: #FE9800;
-  --text-colour:relative #4D4D4D;
+  --text-colour: #4D4D4D;
   --contrasting-border-colour: #4D4D4D;
   --toned-down-border-colour: #ABABAB;
   --light-grey-fill:#E3E3E3;
@@ -40,11 +40,24 @@ query {
   --base-size: 20px;
 }
 
+.sanstream-intro-text {
+  font-family: 'Armata', "Helvetica", sans-serif;
+  color: var(--text-colour);
+}
+
+.sanstream-intro-text a {
+  color: var(--sanstream-orange);
+}
+
 body {
   margin:0;
   padding:0;
   line-height: 1.5;
   background-color: var(--colour-background);
+}
+
+.PageHeader {
+  margin-bottom: calc(2 * var(--base-size));
 }
 
 .sanstream-grid-layout {
