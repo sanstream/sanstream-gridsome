@@ -125,7 +125,7 @@ figure {
 
 .TextAndPictureSequence .TextAndPictureSequence--item .TextAndPictureSequence--item-connector {
   position: absolute;
-  left: calc(50% - 7.5px);
+  left: calc(50% - 7px);
   top: calc(50% - 7.5px);
   z-index: 2;
 }

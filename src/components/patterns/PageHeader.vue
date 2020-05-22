@@ -26,13 +26,14 @@ export default {
   position: sticky;
   top: 0;
   left: 0;
-  height: calc(7 * var(--base-size));
+  height: calc(6 * var(--base-size));
   background-color: var(--colour-background);
   width: 100vw;
+  z-index: 20;
 }
 
 .PageHeader .TopDecoration {
-  z-index: 1;
+  z-index: 3;
   position: absolute;
 }
 
@@ -40,8 +41,9 @@ export default {
   position: relative;
   z-index: 2;
   position: relative;
-  padding: calc(3 * var(--base-size)) var(--base-size) 0 var(--base-size);
+  padding: calc(2.5 * var(--base-size)) var(--base-size) 0 var(--base-size);
   border-bottom: 1px solid var(--toned-down-border-colour);
+  background-color: inherit;
 }
 
 .PageHeader nav.sanstream-grid-layout a {
