@@ -56,78 +56,97 @@ figure {
   position: relative;
 }
 
-.TextAndPictureSequence .TextAndPictureSequence--line {
-  position: absolute;
-  height: 100%;
-  width: 3px;
-  left: calc(50% - 3px);
-  top: 0;
+@media (min-width: 920px) {
+  .TextAndPictureSequence--line {
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    left: calc(50% - 3px);
+    top: 0;
+  }
+
+  .TextAndPictureSequence--item:first-of-type::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(50% - 3px);
+    top: 0;
+    height: calc(50% - 7.5px);
+    width: 3px;
+    z-index: 1;
+    background: var(--colour-background);
+  }
+
+  .TextAndPictureSequence--item:last-of-type::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(50% - 3px);
+    bottom: 0;
+    height: calc(50%);
+    width: 3px;
+    z-index: 1;
+    background: var(--colour-background);
+  }
+
+  .TextAndPictureSequence--item {
+    grid-column: 2 / 8;
+    place-self: center;
+    display: grid;
+    grid-template-areas: "left right";
+    flex-direction: row;
+    gap: calc(4 * var(--base-size));
+    position: relative;
+  }
+
+  .TextAndPictureSequence--item .TextAndPictureSequence--item-figure {
+    width: calc(15 * var(--base-size));
+  }
+
+  .TextAndPictureSequence--item:nth-child(even) .TextAndPictureSequence--item-text {
+    grid-area: left;
+    text-align: right;
+  }
+
+  .TextAndPictureSequence--item .TextAndPictureSequence--item-text > *:first-child {
+    margin-top: 0;
+  }
+
+  .TextAndPictureSequence--item:nth-child(even) .TextAndPictureSequence--item-figure {
+    grid-area: right;
+  }
+
+  .TextAndPictureSequence--item:nth-child(odd) .TextAndPictureSequence--item-text {
+    grid-area: right;
+  }
+
+  .TextAndPictureSequence--item:nth-child(odd) .TextAndPictureSequence--item-figure {
+    grid-area: left;
+  }
+
+  .TextAndPictureSequence--item .TextAndPictureSequence--item-connector {
+    position: absolute;
+    left: calc(50% - 7px);
+    top: calc(50% - 7.5px);
+    z-index: 2;
+  }
 }
 
-.TextAndPictureSequence .TextAndPictureSequence--item:first-of-type::before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: calc(50% - 3px);
-  top: 0;
-  height: calc(50% - 7.5px);
-  width: 3px;
-  z-index: 1;
-  background: var(--colour-background);
-}
+@media (max-width: 920px) {
+  .TextAndPictureSequence--line,
+  .TextAndPictureSequence--item-connector,
+  .TextAndPictureSequence--item:first-of-type::before,
+  .TextAndPictureSequence--item:first-of-type::after {
+    display: none;
+  }
 
-.TextAndPictureSequence .TextAndPictureSequence--item:last-of-type::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: calc(50% - 3px);
-  bottom: 0;
-  height: calc(50%);
-  width: 3px;
-  z-index: 1;
-  background: var(--colour-background);
-}
+  .TextAndPictureSequence--item {
+    display: block;
+  }
 
-.TextAndPictureSequence .TextAndPictureSequence--item {
-  grid-column: 2 / 8;
-  place-self: center;
-  display: grid;
-  grid-template-areas: "left right";
-  flex-direction: row;
-  gap: calc(4 * var(--base-size));
-  position: relative;
-}
-
-.TextAndPictureSequence .TextAndPictureSequence--item .TextAndPictureSequence--item-figure {
-  width: calc(15 * var(--base-size));
-}
-
-.TextAndPictureSequence .TextAndPictureSequence--item:nth-child(even) .TextAndPictureSequence--item-text {
-  grid-area: left;
-  text-align: right;
-}
-
-.TextAndPictureSequence .TextAndPictureSequence--item .TextAndPictureSequence--item-text > *:first-child {
-  margin-top: 0;
-}
-
-.TextAndPictureSequence .TextAndPictureSequence--item:nth-child(even) .TextAndPictureSequence--item-figure {
-  grid-area: right;
-}
-
-.TextAndPictureSequence .TextAndPictureSequence--item:nth-child(odd) .TextAndPictureSequence--item-text {
-  grid-area: right;
-}
-
-.TextAndPictureSequence .TextAndPictureSequence--item:nth-child(odd) .TextAndPictureSequence--item-figure {
-  grid-area: left;
-}
-
-.TextAndPictureSequence .TextAndPictureSequence--item .TextAndPictureSequence--item-connector {
-  position: absolute;
-  left: calc(50% - 7px);
-  top: calc(50% - 7.5px);
-  z-index: 2;
+  .TextAndPictureSequence--item:nth-child(even) .TextAndPictureSequence--item-text {
+    text-align: left;
+  }
 }
 
 </style>
