@@ -13,7 +13,8 @@
         <h1 class="sanstream-heading">
           Contact me!
         </h1>
-        <p>Want to work with me or do you want me to do a presentation? Great! Just send me an e-mail to <a href="mailto:sanne.peters2@gmail.com">sanne.peters2@gmail.com</a>.</p>
+        <p>Want to work with me or do you want me to do a presentation? Great! Just send me an e-mail to
+          <a href="mailto:sanne.peters2@gmail.com">sanne.peters2[@]gmail.com</a>.</p>
         <p>If you like to read more about my background head over to my CV or about page.</p>
       </section>
     </div>
