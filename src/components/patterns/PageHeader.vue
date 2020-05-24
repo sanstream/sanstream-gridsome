@@ -2,8 +2,10 @@
   <header class="PageHeader sanstream-grid-layout-full-viewport">
     <TopDecoration/>
     <nav class="sanstream-grid-layout">
-      <g-link to="/">
-        <g-image src="/logos/logo-emblem.svg" alt="sanstream logo" />
+      <g-link class="PageHeader--logo-link" to="/">
+        <g-image
+          class="PageHeader--logo"
+          src="/logos/logo-emblem.svg" alt="sanstream logo" />
       </g-link>
     </nav>
   </header>
@@ -41,13 +43,42 @@ export default {
   position: relative;
   z-index: 2;
   position: relative;
-  padding: calc(2.5 * var(--base-size)) var(--base-size) 0 var(--base-size);
-  border-bottom: 1px solid var(--toned-down-border-colour);
+  padding: calc(2.5 * var(--base-size)) 0 0 0;
   background-color: inherit;
+}
+
+.PageHeader nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: calc(-1 * var(--base-size));
+  border-bottom: 1px solid var(--toned-down-border-colour);
+  height: 1px;
+  width: calc(100% + 2 * var(--base-size));
 }
 
 .PageHeader nav.sanstream-grid-layout a {
   grid-area: 1 / 1 / 1 / 9;
   place-self: center;
+}
+
+@media (max-width: 920px) {
+  .PageHeader {
+    height: calc(3 * var(--base-size));
+  }
+
+  .PageHeader .TopDecoration {
+    opacity: 0.3;
+  }
+
+  .PageHeader--logo-link {
+    transform-origin: left center;
+    transform: scale(0.8);
+  }
+
+  .PageHeader nav {
+    padding: 0 0 0 0;
+    height: 100%;
+  }
 }
 </style>

@@ -107,6 +107,7 @@
   overflow-x: hidden;
   overflow-y: visible;
   display: flex; /* for centering the middle child */
+  opacity: 0.7;
 }
 
 .TopDecoration > svg {
@@ -124,6 +125,17 @@
 
 .TopDecoration > svg.TopDecoration--right {
   right: -3em;
+}
+
+@media (max-width: 920px) {
+  .TopDecoration {
+    opacity: 0.35;
+  }
+
+  .TopDecoration > svg.TopDecoration--left,
+  .TopDecoration > svg.TopDecoration--right {
+    display: none;
+  }
 }
 
 .TopDecoration > svg > path {
