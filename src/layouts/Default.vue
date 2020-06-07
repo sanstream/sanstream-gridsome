@@ -61,6 +61,11 @@ query {
   color: var(--text-colour);
 }
 
+.sanstream-body-text {
+  font-family: 'Montserrat', serif;
+  color: var(--text-colour);
+}
+
 a[href] {
   color: var(--sanstream-orange);
   text-decoration: none;

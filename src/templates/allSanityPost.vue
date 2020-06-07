@@ -29,7 +29,9 @@
             <div
               :class="`blog--posts-item-text-content ${!node.node.mainImage && 'no-main-image'}`"
             >
-              <p>{{node.node._rawContent}}</p>
+              <SerializedRawContent
+                :rawContent="node.node._rawContent.filter((e, index) => index < 2)"
+              ></SerializedRawContent>
               <a :href="`/post/${node.node.id}`">read more</a>
             </div>
           </article>
@@ -49,12 +51,14 @@
 <script>
 import { Pager } from 'gridsome'
 import Default from '../layouts/Default'
+import SerializedRawContent from '../components/patterns/SerializedRawContent'
 
 export default {
   name: 'allSanityPost',
   components: {
     Default,
     Pager,
+    SerializedRawContent,
   }
 }
 </script>
