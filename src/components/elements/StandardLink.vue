@@ -16,13 +16,14 @@ export default {
 a[href] {
   color: var(--sanstream-orange);
   text-decoration: none;
-  display: inline-block;
+  display: inline;
   border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--sanstream-yellow);
 }
 
 a[href]:hover {
   color: var(--sanstream-orange);
   text-decoration: none;
-  border-bottom: 1px solid var(--sanstream-yellow);
+  border-bottom: 1px solid var(--sanstream-orange);
 }
 </style>

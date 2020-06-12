@@ -66,19 +66,6 @@ query {
   color: var(--text-colour);
 }
 
-a[href] {
-  color: var(--sanstream-orange);
-  text-decoration: none;
-  display: inline-block;
-  border-bottom: 1px solid transparent;
-}
-
-a[href]:hover {
-  color: var(--sanstream-orange);
-  text-decoration: none;
-  border-bottom: 1px solid var(--sanstream-yellow);
-}
-
 body {
   margin:0;
   padding:0;
