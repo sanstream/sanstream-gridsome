@@ -7,14 +7,11 @@
     >
       {{title}}
     </h1>
-    <figure
+    <FramedImage
       v-if="mainImage"
       class="blog--posts-item-main-image"
-    >
-      <g-image
-        :src="mainImage.asset.url"
-      />
-    </figure>
+      :src="mainImage.asset.url"
+    />
     <div
       :class="`blog--posts-item-text-content ${!mainImage && 'no-main-image'}`"
     >
@@ -29,12 +26,14 @@
 
 <script>
 import SerializedRawContent from './SerializedRawContent'
+import FramedImage from '../elements/FramedImage';
 import VueTypes from 'vue-types'
 
 export default {
   name: 'allSanityPost',
   components: {
     SerializedRawContent,
+    FramedImage,
   },
 
   props: {
@@ -61,6 +60,8 @@ export default {
   margin: 0;
   grid-column: 1 / 4;
   grid-row: 2;
+  height: 80%;
+  overflow: hidden;
 }
 
 .blog--posts-item-main-image img {
