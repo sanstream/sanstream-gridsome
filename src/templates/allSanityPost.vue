@@ -10,31 +10,12 @@
           class="sanstream-grid-layout-full-viewport"
           v-for="node in $page.allSanityPost.edges"
           :key="node.id">
-          <article
-            class="blog--posts-item sanstream-grid-layout"
-          >
-            <h1
-              class="sanstream-heading"
-            >
-              {{node.node.title}}
-            </h1>
-            <figure
-              v-if="node.node.mainImage"
-              class="blog--posts-item-main-image"
-            >
-              <g-image
-                :src="node.node.mainImage.asset.url"
-              />
-            </figure>
-            <div
-              :class="`blog--posts-item-text-content ${!node.node.mainImage && 'no-main-image'}`"
-            >
-              <SerializedRawContent
-                :rawContent="node.node._rawContent.filter((e, index) => index < 2)"
-              ></SerializedRawContent>
-              <a :href="`/post/${node.node.id}`">read more</a>
-            </div>
-          </article>
+            <BlogPostsItem
+              :id="node.node.id"
+              :title="node.node.title"
+              :postBody="node.node._rawContent"
+              :mainImage="node.node.mainImage"
+            />
         </li>
       </ol>
       <footer class="sanstream-grid-layout">
@@ -44,21 +25,20 @@
         />
       </footer>
     </main>
-    </div>
   </Default>
 </template>
 
 <script>
 import { Pager } from 'gridsome'
 import Default from '../layouts/Default'
-import SerializedRawContent from '../components/patterns/SerializedRawContent'
+import BlogPostsItem from '../components/patterns/BlogPostsItem'
 
 export default {
   name: 'allSanityPost',
   components: {
     Default,
     Pager,
-    SerializedRawContent,
+    BlogPostsItem,
   }
 }
 </script>
@@ -99,36 +79,4 @@ query($page: Int) {
   list-style-type: none;
   padding: 0;
 }
-
-.blog--posts-item {
-  margin-bottom: calc(3 * var(--base-size));
-}
-
-.blog--posts-item > h1 {
-  margin: 0;
-  grid-column: 1 / 9;
-  grid-row: 1;
-}
-
-.blog--posts-item-main-image {
-  margin: 0;
-  grid-column: 1 / 4;
-  grid-row: 2;
-}
-
-.blog--posts-item-main-image img {
-  width: 100%;
-}
-
-.blog--posts-item-text-content {
-    margin: 0;
-    /* grid-area: 2 / 4 / 2 / 9; */
-    grid-column: 4 / 9;
-    grid-row: 2;
-}
-
-.blog--posts-item-text-content.no-main-image {
-  grid-column: 1 / 9;
-}
-
 </style>
