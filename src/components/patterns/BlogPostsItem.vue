@@ -2,11 +2,6 @@
   <article
     class="blog--posts-item sanstream-grid-layout"
   >
-    <h1
-      class="sanstream-heading"
-    >
-      {{title}}
-    </h1>
     <FramedImage
       v-if="mainImage"
       class="blog--posts-item-main-image"
@@ -15,6 +10,19 @@
     <div
       :class="`blog--posts-item-text-content ${!mainImage && 'no-main-image'}`"
     >
+      <header>
+        <h1
+          class="sanstream-heading"
+        >
+          {{title}}
+        </h1>
+        <PostMetaData
+          class="blog--posts-item-meta-data"
+          :publishedOn="publishedOn"
+        />
+      </header>
+
+
       <SerializedRawContent
         v-if="postBody && postBody.length"
         :rawContent="postBody.filter((e, index) => index < 2)"
@@ -26,7 +34,8 @@
 
 <script>
 import SerializedRawContent from './SerializedRawContent'
-import FramedImage from '../elements/FramedImage';
+import FramedImage from '../elements/FramedImage'
+import PostMetaData from '../elements/PostMetaData'
 import VueTypes from 'vue-types'
 
 export default {
@@ -34,6 +43,7 @@ export default {
   components: {
     SerializedRawContent,
     FramedImage,
+    PostMetaData,
   },
 
   props: {
@@ -41,6 +51,8 @@ export default {
     title: VueTypes.string.required,
     mainImage: VueTypes.object,
     postBody: VueTypes.array,
+    publishedOn: VueTypes.string.required,
+    partOfCategories: VueTypes.array.required,
   },
 }
 </script>
@@ -50,10 +62,12 @@ export default {
   margin-bottom: calc(3 * var(--base-size));
 }
 
-.blog--posts-item > h1 {
+.blog--posts-item h1 {
   margin: 0;
-  grid-column: 1 / 9;
-  grid-row: 1;
+}
+
+.blog--posts-item-meta-data {
+  margin-top: var(--base-size);
 }
 
 .blog--posts-item-main-image {

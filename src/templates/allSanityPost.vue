@@ -15,6 +15,8 @@
               :title="node.node.title"
               :postBody="node.node._rawContent"
               :mainImage="node.node.mainImage"
+              :publishedOn="node.node.publishedAt"
+              :partOfCategories="node.node.categories"
             />
         </li>
       </ol>
