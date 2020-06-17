@@ -27,7 +27,11 @@
         v-if="postBody && postBody.length"
         :rawContent="postBody.filter((e, index) => index < 2)"
       ></SerializedRawContent>
-      <a :href="`/post/${id}`">read more</a>
+      <SpecialLink
+        :href="`/post/${id}`"
+      >
+        read more
+      </SpecialLink>
     </div>
   </article>
 </template>
@@ -36,6 +40,7 @@
 import SerializedRawContent from './SerializedRawContent'
 import FramedImage from '../elements/FramedImage'
 import PostMetaData from '../elements/PostMetaData'
+import SpecialLink from '../elements/SpecialLink'
 import VueTypes from 'vue-types'
 
 export default {
@@ -44,6 +49,7 @@ export default {
     SerializedRawContent,
     FramedImage,
     PostMetaData,
+    SpecialLink,
   },
 
   props: {

@@ -56,6 +56,7 @@ query($page: Int) {
     }
     edges {
       node {
+        id
         publishedAt
         title
         mainImage {
