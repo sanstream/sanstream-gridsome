@@ -3,6 +3,8 @@
     class="sanstream-block-content"
     :blocks="rawContent.filter(e => e._type === 'block')"
     :serializers="serializers"
+    projectId="he47alh5"
+    dataset="production"
   />
 </template>
 
