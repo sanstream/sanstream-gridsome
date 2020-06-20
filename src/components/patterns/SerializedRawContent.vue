@@ -1,7 +1,7 @@
 <template>
   <BlockContent
     class="sanstream-block-content"
-    :blocks="rawContent.filter(e => e._type === 'block')"
+    :blocks="rawContent"
     :serializers="serializers"
     projectId="he47alh5"
     dataset="production"
@@ -13,6 +13,7 @@ import VueTypes from 'vue-types'
 import BlockContent from 'sanity-blocks-vue-component'
 import StandardLink from '../elements/StandardLink'
 import StandardParagraph from '../elements/StandardParagraph'
+import StandardImage from '../elements/StandardImage'
 
 export default {
   name: 'SerializedRawContent',
@@ -26,6 +27,7 @@ export default {
       return {
         types: {
           block: StandardParagraph,
+          image: StandardImage,
         },
         marks: {
           link: StandardLink,

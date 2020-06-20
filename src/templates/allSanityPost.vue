@@ -13,7 +13,7 @@
             <BlogPostsItem
               :id="node.node.id"
               :title="node.node.title"
-              :postBody="node.node._rawContent"
+              :postBody="node.node._rawContent.filter(e => e._type === 'block')"
               :mainImage="node.node.mainImage"
               :publishedOn="node.node.publishedAt"
               :partOfCategories="node.node.categories"
