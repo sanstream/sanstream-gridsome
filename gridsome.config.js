@@ -25,4 +25,12 @@ module.exports = {
       },
     },
   ],
+  templates: {
+    SanityPost: [
+      {
+        path: '/post/:id',
+        component: './src/templates/Post.vue',
+      },
+    ],
+  },
 }

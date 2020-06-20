@@ -6,6 +6,12 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = function (api) {
+  api.configureWebpack({
+    // add config here
+    watchOptions: {
+      ignored: 'node_modules/**/*',
+    },
+  })
   api.loadSource(({ addCollection, }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
   })
