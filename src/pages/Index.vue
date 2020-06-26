@@ -10,6 +10,20 @@
             class=""
             :sequence="edge.node.pictureAndTextSequence"
           />
+          <nav
+            class="continued-navigation sanstream-fluid-layout"
+          >
+            <h1 class="sanstream-heading">Dive Deeper</h1>
+            <ul>
+              <li>
+                <SpecialLink
+                  href="/blog/"
+                >
+                  Blog posts
+                </SpecialLink>
+              </li>
+            </ul>
+          </nav>
         </main>
       </template>
     </template>
@@ -18,6 +32,7 @@
 
 <script>
 import TextAndPictureSequence from '../components/patterns/TextAndPictureSequence'
+import SpecialLink from '../components/elements/SpecialLink'
 
 export default {
   metaInfo: {
@@ -26,6 +41,7 @@ export default {
 
   components: {
     TextAndPictureSequence,
+    SpecialLink,
   },
 }
 </script>
@@ -54,6 +70,17 @@ query {
 <style>
 .home-links a {
   margin-right: 1rem;
+}
+
+.continued-navigation {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.continued-navigation ul {
+  list-style: none;
+  margin: 1em 0;
+  padding: 0;
 }
 </style>
 
