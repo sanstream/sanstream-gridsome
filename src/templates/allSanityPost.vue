@@ -20,10 +20,12 @@
             />
         </li>
       </ol>
-      <footer class="sanstream-grid-layout">
-        <Pager
+      <footer class="sanstream-grid-layout-full-viewport">
+        <!-- <Pager :info="$page.allSanityPost.pageInfo"/> -->
+        <Pagination
           class="blog--pagination"
-          :info="$page.allSanityPost.pageInfo"
+          :pageInfo="$page.allSanityPost.pageInfo"
+          basePath="/blog"
         />
       </footer>
     </main>
@@ -31,16 +33,18 @@
 </template>
 
 <script>
-import { Pager } from 'gridsome'
 import Default from '../layouts/Default'
 import BlogPostsItem from '../components/patterns/BlogPostsItem'
+import Pagination from '../components/patterns/Pagination'
+import { Pager } from 'gridsome'
 
 export default {
   name: 'allSanityPost',
   components: {
     Default,
-    Pager,
     BlogPostsItem,
+    Pagination,
+    Pager,
   }
 }
 </script>
