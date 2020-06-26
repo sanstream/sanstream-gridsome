@@ -41,10 +41,9 @@ export default {
 
 .PageHeader nav {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   position: relative;
   padding: calc(2.5 * var(--base-size)) 0 0 0;
-  background-color: inherit;
 }
 
 .PageHeader nav::after {
