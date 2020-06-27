@@ -8,9 +8,6 @@
 import VueTypes from 'vue-types'
 export default {
   name: 'StandardParagraph',
-  props: {
-    href: VueTypes.string.required,
-  },
 }
 </script>
 
