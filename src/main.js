@@ -9,6 +9,14 @@ export default function (Vue, { router, head, isClient, }) {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Armata&family=Fira+Code&family=Montserrat:wght@500&display=swap',
   })
+  head.link.push({
+    rel: 'stylesheet',
+    href: '/syntax-highlighting/prism.css',
+  })
+  head.script.push({
+    src: '/syntax-highlighting/prism.js',
+    body: true,
+  })
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 }

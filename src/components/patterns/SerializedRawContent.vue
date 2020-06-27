@@ -14,6 +14,7 @@ import BlockContent from 'sanity-blocks-vue-component'
 import StandardLink from '../elements/StandardLink'
 import StandardParagraph from '../elements/StandardParagraph'
 import StandardImage from '../elements/StandardImage'
+import CodeExample from '../elements/CodeExample'
 
 export default {
   name: 'SerializedRawContent',
@@ -28,6 +29,7 @@ export default {
         types: {
           block: StandardParagraph,
           image: StandardImage,
+          code: CodeExample,
         },
         marks: {
           link: StandardLink,
