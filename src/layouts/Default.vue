@@ -54,6 +54,7 @@ query {
 .sanstream-heading {
   font-family: 'Armata', "Helvetica", sans-serif;
   color: var(--text-colour);
+  line-height: 1.4em;
 }
 
 .sanstream-special-text {

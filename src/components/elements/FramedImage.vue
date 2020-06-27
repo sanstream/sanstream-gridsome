@@ -36,5 +36,6 @@ div {
 img {
   display: block;
   width: 100%;
+  min-width: 100%;
 }
 </style>

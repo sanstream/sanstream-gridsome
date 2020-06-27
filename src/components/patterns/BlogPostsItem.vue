@@ -77,11 +77,9 @@ export default {
 }
 
 .blog--posts-item-main-image {
-  margin: 0;
+  margin: 0 0 2em 0;
   grid-column: 1 / 4;
-  grid-row: 2;
-  height: 80%;
-  overflow: hidden;
+  grid-row: 1;
 }
 
 .blog--posts-item-main-image img {
@@ -92,7 +90,7 @@ export default {
     margin: 0;
     /* grid-area: 2 / 4 / 2 / 9; */
     grid-column: 4 / 9;
-    grid-row: 2;
+    grid-row: 1;
 }
 
 .blog--posts-item-text-content.no-main-image {
