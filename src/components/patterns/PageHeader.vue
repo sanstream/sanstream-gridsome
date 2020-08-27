@@ -7,17 +7,46 @@
           class="PageHeader--logo"
           src="/logos/logo-emblem.svg" alt="sanstream logo" />
       </g-link>
+
+      <NavigationMenu
+        class="main-navigation"
+        :collectionPages="linksToCollections"
+        :singlePages="linksToSinglePages"
+      />
     </nav>
   </header>
 </template>
 
 <script>
 import TopDecoration from '~/components/patterns/TopDecoration';
+import NavigationMenu from '~/components/patterns/NavigationMenu';
 
 export default {
   name: 'PageHeader',
   components: {
     TopDecoration,
+    NavigationMenu,
+  },
+
+  data () {
+    return {
+      linksToCollections: [
+        {
+          href:"/blog/",
+          label: 'blog',
+        },
+        {
+          href:"/portfolio/",
+          label: 'portfolio',
+        },
+      ],
+      linksToSinglePages: [
+        {
+          href:"/cv/",
+          label: 'my CV',
+        },
+      ],
+    }
   },
 }
 </script>
@@ -61,6 +90,11 @@ export default {
   place-self: center;
 }
 
+.PageHeader nav.sanstream-grid-layout .main-navigation {
+  grid-area: 1 / 8 / 1 / 9;
+  place-self: center;
+}
+
 @media (max-width: 920px) {
   .PageHeader {
     height: calc(3 * var(--base-size));
@@ -70,7 +104,7 @@ export default {
     opacity: 0.3;
   }
 
-  .PageHeader--logo-link {
+  .PageHeader--logo-link img {
     transform-origin: left center;
     transform: scale(0.8);
   }
@@ -78,6 +112,13 @@ export default {
   .PageHeader nav {
     padding: 0 0 0 0;
     height: 100%;
+    position: relative;
+  }
+
+  .PageHeader nav.sanstream-grid-layout .main-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 </style>
