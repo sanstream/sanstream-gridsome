@@ -1,7 +1,7 @@
 <template>
   <g-link
     class="sanstream-special-text special-link"
-    :class="triangleToText"
+    :class="`${triangleToText} ${hasDarkParent && 'hasDarkParent'}`"
    :to="href">
     <PointerTriangle
       v-if="triangleToText === 'left'"
@@ -29,6 +29,7 @@ export default {
   props: {
     href: VueTypes.string.required,
     triangleToText: VueTypes.oneOf(['left', 'right', 'none']).def('right'),
+    hasDarkParent: VueTypes.bool.def(false)
   },
 }
 </script>
@@ -41,6 +42,14 @@ a[href].special-link {
   height: 22px;
   line-height: 22px;
   }
+
+a[href].special-link.hasDarkParent {
+  color: var(--text-on-darkest-colour);
+}
+
+a[href].special-link.hasDarkParent svg path {
+  /* stroke: var(--text-on-darkest-colour); */
+}
 
 a[href].special-link .displayed-text {
   display: inline-block;
@@ -70,6 +79,7 @@ a[href].special-link.right svg {
 
 a[href].special-link svg path {
   transition: fill 0.1s linear;
+  stroke: none;
   fill: var(--sanstream-orange);
 }
 

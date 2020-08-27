@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import '../tokens.css'
 import PageHeader from '../components/patterns/PageHeader';
 import PageFooter from '../components/patterns/PageFooter';
 
@@ -29,44 +30,6 @@ query {
 </static-query>
 
 <style>
-:root {
-  --colour-background: #ffffff;
-  --sanstream-orange: #FF5C00;
-  --sanstream-yellow: #FE9800;
-  --text-colour: #4D4D4D;
-  --contrasting-border-colour: #4D4D4D;
-  --toned-down-border-colour: #ABABAB;
-  --light-grey-fill:#E3E3E3;
-  --middle-grey-fill:#C4C4C4;
-  --dark-grey-fill:#878787;
-
-  --base-size: 20px;
-  --min-content-width: calc(20px * 4 * 3 + 20px * 2 * 2); /* base-size * 4 (= column-width) * 3 columns */
-  --mobile-breakpoint: 920px;
-}
-
-.sanstream-intro-text {
-  font-family: 'Armata', "Helvetica", sans-serif;
-  color: var(--text-colour);
-  font-size: 100%;
-}
-
-.sanstream-heading {
-  font-family: 'Armata', "Helvetica", sans-serif;
-  color: var(--text-colour);
-  line-height: 1.4em;
-}
-
-.sanstream-special-text {
-  font-family: 'Fira Code', monospace;
-  color: var(--text-colour);
-}
-
-.sanstream-body-text {
-  font-family: 'Montserrat', serif;
-  color: var(--text-colour);
-}
-
 body {
   margin:0;
   padding:0;
