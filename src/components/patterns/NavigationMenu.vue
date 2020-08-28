@@ -17,6 +17,9 @@
         class="sanstream-fluid-layout navigation-menu--dialog-content"
       >
         <header>
+          <h1
+            class="sanstream-heading"
+          >Main menu</h1>
           <Button
             variant="textual"
             :onClick="closeDialog"
@@ -28,14 +31,37 @@
             />
           </Button>
         </header>
-        <ul>
-          <li>  
+        <ul
+          class="navigation-menu-links"
+          v-if="collectionPages.length"
+        >
+          <li
+            v-for="page in collectionPages"
+            :key="page.href"
+          >  
             <SpecialLink
-              href="/blog/"
+              :href="page.href"
               triangleToText="right"
               :hasDarkParent="true"
             >
-              Blog
+              {{page.label}}
+            </SpecialLink>
+          </li>  
+        </ul>
+        <ul
+          class="navigation-menu-links"
+          v-if="singlePages.length"
+        >
+          <li
+            v-for="page in singlePages"
+            :key="page.href"
+          >  
+            <SpecialLink
+              :href="page.href"
+              triangleToText="right"
+              :hasDarkParent="true"
+            >
+              {{page.label}}
             </SpecialLink>
           </li>  
         </ul>
@@ -155,11 +181,41 @@ menu dialog.hide {
 .navigation-menu--close-dialog {
   position: absolute;
   top: var(--base-size);
-  right: var(--base-size);
+  right: calc(-0.5 * var(--base-size));
 }
 
+dialog header h1 {
+  width: calc(100% - 3 * var(--base-size));
+  color: inherit;
+  margin-bottom: 2em;
+}
 
-/**dialog animation: https://codepen.io/geckotang/pen/KmGkL */
+dialog ul.navigation-menu-links {
+  padding: 0;
+  margin: 3em 0 2em 0;
+  list-style: none;
+}
+
+dialog ul.navigation-menu-links li {
+  margin: 0.75em 0;
+  text-align: right;
+  display: flex;
+}
+
+dialog ul.navigation-menu-links li > a {
+  flex: 0 0 auto;
+}
+
+dialog ul.navigation-menu-links li::before {
+  content: '';
+  border-bottom: 2px dashed var(--dark-grey-fill);
+  display: inline-block;
+  flex: 2 1 auto;
+  position: relative;
+  top: 1px;
+  margin-right: 1em;
+  opacity: 0.4;
+}
 
 </style>
 
