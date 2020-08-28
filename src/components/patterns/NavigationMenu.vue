@@ -6,6 +6,7 @@
     >
       <Icon
         id="Menu"
+        titleText="Open main menu"
       />
     </Button>
     <dialog
@@ -14,16 +15,19 @@
     >
       <div
         class="sanstream-fluid-layout navigation-menu--dialog-content"
-      > 
-        <Button
-          variant="textual"
-          :onClick="closeDialog"
-          class="navigation-menu--close-dialog"
-        >
-          <Icon
-            id="CloseCross"
-          />
-        </Button>
+      >
+        <header>
+          <Button
+            variant="textual"
+            :onClick="closeDialog"
+            class="navigation-menu--close-dialog"
+          >
+            <Icon
+              id="CloseCross"
+              titleText="Close main menu"
+            />
+          </Button>
+        </header>
         <ul>
           <li>  
             <SpecialLink

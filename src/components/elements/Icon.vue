@@ -2,7 +2,9 @@
   <component
     class="santream-svg-icon"
     :is="id"
-  />
+    >
+      <title>{{titleText}}</title>
+    </component>
 </template>
 
 
@@ -20,6 +22,11 @@ export default {
 
   props: {
     id: VueTypes.string.required,
+    /**
+     * Used as a label to make sure the icon
+     * is accessible.
+     */
+    titleText: VueTypes.string.required,
   },
 }
 </script>
