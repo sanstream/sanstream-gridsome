@@ -53,9 +53,16 @@ a[href].special-link.hasDarkParent svg path {
 
 a[href].special-link .displayed-text {
   display: inline-block;
+  text-transform: capitalize;
+  padding: 0 0.25em;
   border-bottom: 1px solid var(--sanstream-yellow);
 }
 
+a[href].special-link:focus {
+  outline: none;
+}
+
+a[href].special-link:focus .displayed-text,
 a[href].special-link:hover .displayed-text {
   border-bottom: 2px solid var(--sanstream-orange);
 }
@@ -83,6 +90,14 @@ a[href].special-link svg path {
   fill: var(--sanstream-orange);
 }
 
+a[href].special-link:focus svg,
+a[href].special-link:hover svg {
+  filter: 
+    /* drop-shadow(0px 0px 1px var(--sanstream-yellow)) */
+    drop-shadow(0px 0px 6px var(--sanstream-yellow));
+}
+
+a[href].special-link:focus svg path,
 a[href].special-link:hover svg path {
   fill: var(--sanstream-yellow);
 }

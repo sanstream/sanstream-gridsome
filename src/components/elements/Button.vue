@@ -28,11 +28,23 @@ button {
   cursor: pointer;
 }
 
+
 button.variant-textual {
   border: 0;
   box-shadow: none;
   background-color: inherit;
   color: var(--sanstream-orange);
+}
+
+button.variant-textual:focus {
+  outline: none;
+}
+
+button.variant-textual:focus *,
+button.variant-textual:hover * {
+  filter: 
+    drop-shadow(0px 0px 1px var(--sanstream-yellow))
+    drop-shadow(0px 0px 4px var(--sanstream-yellow));
 }
 </style>
 
