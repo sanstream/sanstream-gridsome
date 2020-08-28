@@ -21,9 +21,11 @@ a[href] {
   border-bottom: 1px solid var(--sanstream-yellow);
 }
 
+a[href]:focus,
 a[href]:hover {
+  outline: none;
   color: var(--sanstream-orange);
   text-decoration: none;
-  border-bottom: 1px solid var(--sanstream-orange);
+  border-bottom: 2px solid var(--sanstream-orange);
 }
 </style>
