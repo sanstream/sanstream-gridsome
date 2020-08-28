@@ -35,10 +35,6 @@ export default {
           href:"/blog/",
           label: 'blog',
         },
-        {
-          href:"/portfolio/",
-          label: 'portfolio',
-        },
       ],
       linksToSinglePages: [
         {
