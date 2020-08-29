@@ -12,8 +12,20 @@ module.exports = function (api) {
       ignored: 'node_modules/**/*',
     },
   })
-  api.loadSource(({ addCollection, }) => {
-    // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
+  api.loadSource(async (actions) => {
+    const rawSkills = require('./src/data/skills.json');
+
+    const Skills = actions.addCollection({
+      typeName: 'Skill'
+    })
+
+    
+    for (const skill of rawSkills) {
+      Skills.addNode({
+        ...skill,
+        id: skill.label,
+      });
+    }
   })
 
   api.createPages(({ createPage, }) => {

@@ -59,6 +59,21 @@
           </StandardLink>.
         </StandardParagraph>
       </article>
+      <article 
+        class="sanstream-fluid-layout"
+      >
+        <h1 class="sanstream-heading">
+          Skills
+        </h1>
+        <figure
+          v-for="category in skillCategories"
+          :key="category.id"
+        >
+          <figcaption class="sanstream-body-text">
+            {{category.label}}
+          </figcaption>
+        </figure>
+      </article>
     </main>
   </Layout>
 </template>
@@ -66,10 +81,59 @@
 <script>
 import StandardParagraph from '../components/elements/StandardParagraph'
 import StandardLink from '../components/elements/StandardLink'
+import * as d3 from 'd3-hierarchy'
 
 export default {
   metaInfo: {
     title: 'homepage',
+  },
+
+  computed: {
+    skillCategories () {
+      if (this.$page.allSkill && this.$page.allSkill.edges.length) {
+        const allCategoriesFromAllSkills = [].concat(...this.$page.allSkill.edges
+          .map(item => item.node.categories))
+        
+        return [...new Set(allCategoriesFromAllSkills)].map(category => {
+          
+          const skillData = this.$page.allSkill.edges
+          .filter(item => item.node.categories.find(text => text === category))
+          
+          const framedAsHierarchy = d3.hierarchy({
+            name: 'root',
+            children: skillData.map(d => {
+              return {
+                ...d,
+                size: d.node.level,
+              }
+            }),
+          }, node => {
+            if (node.children) {
+              return node.children
+            } else return null
+          })
+          .sum(d => {
+            console.log(d)
+            return node.node.level
+          })
+
+          const pack = d3.pack()
+            .size([
+              400, 400,
+            ])
+            .padding(3)
+          pack(framedAsHierarchy)
+          console.log(framedAsHierarchy.descendants())
+          return {
+            id: category,
+            label: category,
+            skills: framedAsHierarchy.descendants(),
+          }
+        })
+      } else {
+        return []
+      }
+    },
   },
 
   components: {
@@ -78,6 +142,22 @@ export default {
   },
 }
 </script>
+
+<page-query>
+query {
+  allSkill {
+    edges {
+      node {
+        id,
+        label,
+        level,
+        lastUsed,
+        categories,
+      }
+    }
+  }
+}
+</page-query>
 
 <style>
 </style>
