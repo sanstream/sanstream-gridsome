@@ -9,64 +9,66 @@
         titleText="Open main menu"
       />
     </Button>
-    <dialog
-      class="sanstream-grid-layout-full-viewport"
-      ref="dialog"
-    >
-      <div
-        class="sanstream-fluid-layout navigation-menu--dialog-content"
+    <ClientOnly>
+      <dialog
+        class="sanstream-grid-layout-full-viewport"
+        ref="dialog"
       >
-        <header>
-          <h1
-            class="sanstream-heading"
-          >Main menu</h1>
-          <Button
-            variant="textual"
-            :onClick="closeDialog"
-            class="navigation-menu--close-dialog"
+        <div
+          class="sanstream-fluid-layout navigation-menu--dialog-content"
+        >
+          <header>
+            <h1
+              class="sanstream-heading"
+            >Main menu</h1>
+            <Button
+              variant="textual"
+              :onClick="closeDialog"
+              class="navigation-menu--close-dialog"
+            >
+              <Icon
+                id="CloseCross"
+                titleText="Close main menu"
+              />
+            </Button>
+          </header>
+          <ul
+            class="navigation-menu-links"
+            v-if="collectionPages.length"
           >
-            <Icon
-              id="CloseCross"
-              titleText="Close main menu"
-            />
-          </Button>
-        </header>
-        <ul
-          class="navigation-menu-links"
-          v-if="collectionPages.length"
-        >
-          <li
-            v-for="page in collectionPages"
-            :key="page.href"
-          >  
-            <SpecialLink
-              :href="page.href"
-              triangleToText="right"
-              :hasDarkParent="true"
-            >
-              {{page.label}}
-            </SpecialLink>
-          </li>  
-        </ul>
-        <ul
-          class="navigation-menu-links"
-          v-if="singlePages.length"
-        >
-          <li
-            v-for="page in singlePages"
-            :key="page.href"
-          >  
-            <SpecialLink
-              :href="page.href"
-              triangleToText="right"
-              :hasDarkParent="true"
-            >
-              {{page.label}}
-            </SpecialLink>
-          </li>  
-        </ul>
-      </div>
-    </dialog>
+            <li
+              v-for="page in collectionPages"
+              :key="page.href"
+            >  
+              <SpecialLink
+                :href="page.href"
+                triangleToText="right"
+                :hasDarkParent="true"
+              >
+                {{page.label}}
+              </SpecialLink>
+            </li>  
+          </ul>
+          <ul
+            class="navigation-menu-links"
+            v-if="singlePages.length"
+          >
+            <li
+              v-for="page in singlePages"
+              :key="page.href"
+            >  
+              <SpecialLink
+                :href="page.href"
+                triangleToText="right"
+                :hasDarkParent="true"
+              >
+                {{page.label}}
+              </SpecialLink>
+            </li>  
+          </ul>
+        </div>
+      </dialog>
+    </ClientOnly>
   </menu>
 </template>
 
@@ -76,7 +78,6 @@ import VueTypes from 'vue-types'
 import SpecialLink from '../elements/SpecialLink'
 import Button from '../elements/Button'
 import Icon from '../elements/Icon'
-import dialogPolyfill from 'dialog-polyfill'
 
 const arrayOfLinks = VueTypes.arrayOf(VueTypes.shape({
   href: VueTypes.string,
@@ -102,7 +103,9 @@ export default {
   },
 
   mounted () {
-    dialogPolyfill.registerDialog(this.$refs.dialog)
+    import('dialog-polyfill')
+      .then(m => m.default.registerDialog(this.$refs.dialog))
+      .catch()
   },
 
   methods: {
