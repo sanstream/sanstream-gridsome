@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <main
-      v-if="$page.allSkill.edges.length && skillCategories.length"
+      v-if="$page && $page.allSkill.edges.length && skillCategories.length"
       class="sanstream-grid-layout-full-viewport"
     > 
       <header
@@ -59,6 +59,88 @@
           </StandardLink>.
         </StandardParagraph>
       </article>
+      <article 
+        class="sanstream-fluid-layout"
+      >
+        <h1 class="sanstream-heading">
+          Skills
+        </h1>
+
+        <StandardParagraph>
+          Instead of just summarising my skills and expertises I visualised
+          so they can be scanned and reviewed quickly. This way I can easily
+          show what I am about.
+        </StandardParagraph>
+
+        <ul class="sanstream-no-list-styles">
+          <li
+            v-for="legend in skillsLegend"
+            :key="legend.value"
+            class="sanstream-body-text"
+          >
+          <svg class="legend-colour-icon"
+            height="16"
+            width="16"
+            viewBox="0 0 16 16"
+          >
+            <circle
+              r="8"
+              cy="8"
+              cx="8"
+              :fill="getSkillColour(legend.value)"
+            >
+              <title>{{legend.value}}</title>
+            </circle>
+          </svg> = {{legend.label}}
+          </li>
+        </ul>
+
+        <figure
+          v-for="category in skillCategories"
+          :key="category.id"
+        >
+          <figcaption class="sanstream-heading">
+            {{category.label}}
+          </figcaption>
+          <svg
+            :width="skillsBox.width"
+            :height="skillsBox.height"
+          >
+            <g
+              v-for="skill in category.skills.children"
+              :key="skill.data.node.id"
+            >
+              <circle
+                :r="skill.r"
+                :cy="skill.y"
+                :cx="skill.x"
+                :data-skill-level="skill.value"
+                :fill="getSkillColour(skill.value)"
+              >
+                <title>{{skill.data.node.label}}: {{skill.value}}</title>
+              </circle>
+              <text
+                text-anchor="middle"
+                :y="skill.y - ((skill.data.node.label.split(' ').length / 2) * 16)"
+                :x="skill.x"
+                dy="0"
+                class="sanstream-special-text"
+              >
+                <tspan
+                  v-for="(part, index) in skill.data.node.label.split(' ')"
+                  :key="index"
+                  :font-size="16 * (skill.value/5)"
+                  text-anchor="middle"
+                  dy="1em"
+                  :x="skill.x"
+                >
+                  {{part}}
+                </tspan>
+              </text>
+            </g>
+          </svg>
+        </figure>
+      </article>
     </main>
   </Layout>
 </template>
@@ -66,10 +148,95 @@
 <script>
 import StandardParagraph from '../components/elements/StandardParagraph'
 import StandardLink from '../components/elements/StandardLink'
+import * as d3 from 'd3'
 
 export default {
   metaInfo: {
     title: 'homepage',
+  },
+
+  data () {
+    return {
+      skillsBox: {
+        width: 400,
+        height: 400,
+      },
+      skillsLegend: [
+        { 
+          value: 1,
+          label: "Familiar with it, but it has been a while.",
+        },
+        {
+          value: 2,
+          label: "Have worked with it, in the past.",
+        },
+        {
+          value: 3,
+          label: "Fairly experienced in it.",
+        },
+        {
+          value: 4,
+          label: "Good at it.",
+        },
+        {
+          value: 5,
+          label: "Excellent at it.",
+        },
+      ]
+    }
+  },
+
+  computed: {
+    skillCategories () {
+      if (this.$page.allSkill && this.$page.allSkill.edges.length) {
+        const allCategoriesFromAllSkills = [].concat(...this.$page.allSkill.edges
+          .map(item => item.node.categories))
+        
+        return [...new Set(allCategoriesFromAllSkills)].map(category => {
+          
+          const skillData = this.$page.allSkill.edges
+          .filter(item => item.node.categories.find(text => text === category))
+          
+          const framedAsHierarchy = d3.hierarchy({
+            name: 'root',
+            children: skillData.map(d => {
+              return {
+                ...d,
+                size: d.node.level,
+              }
+            }),
+          }, node => {
+            if (node.children) {
+              return node.children
+            } else return null
+          })
+          .sum(d => {
+            return (d.node) ? d.node.level : null
+          })
+
+          const pack = d3.pack()
+            .size([
+              this.skillsBox.width, this.skillsBox.height,
+            ])
+            .padding(20)
+          pack(framedAsHierarchy)
+          return {
+            id: category,
+            label: category,
+            skills: framedAsHierarchy,
+          }
+        })
+      } else {
+        return []
+      }
+    },
+
+    getSkillColour () {
+      return d3.scaleLinear()
+      .domain([1,5])
+      .range(['#E3E3E3', '#FE9800'])
+      .interpolate(d3.interpolateHcl)
+    },
   },
 
   components: {
@@ -79,6 +246,34 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<page-query>
+query {
+  allSkill {
+    edges {
+      node {
+        id,
+        label,
+        level,
+        lastUsed,
+        categories,
+      }
+    }
+  }
+}
+</page-query>
 
+<style scoped>
+article svg {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: middle;
+}
+
+article figure {
+  margin: 1em 0;
+  display: inline-block;
+}
+
+article svg text {
+}
+</style>

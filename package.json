@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@sanity/block-content-to-hyperscript": "^2.0.10",
+    "d3": "^6.1.0",
+    "d3-hierarchy": "^2.0.0",
     "dialog-polyfill": "^0.5.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
