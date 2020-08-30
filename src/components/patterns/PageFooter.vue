@@ -14,8 +14,11 @@
           Contact me!
         </h1>
         <p>Want to work with me or do you want me to do a presentation? Great! Just send me an e-mail to
-          <a href="mailto:sanne.peters2@gmail.com">sanne.peters2[@]gmail.com</a>.</p>
-        <p>If you like to read more about my background head over to my CV page.</p>
+          <standardLink href="mailto:sanne.peters2@gmail.com">sanne.peters2[@]gmail.com</standardLink>.</p>
+        <p>If you like to read more about my background head over to my
+          <StandardLink
+            href="/cv/"
+          >CV page</StandardLink>.</p>
       </section>
     </div>
     <svg width="1440" height="43" viewBox="0 0 1440 43" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,6 +76,17 @@
     </svg>
   </footer>
 </template>
+
+<script>
+import StandardLink from '~/components/elements/StandardLink'
+
+export default {
+  name: 'PageFooter',
+  components: {
+    StandardLink,
+  }
+}
+</script>
 
 <style scoped>
 footer {
