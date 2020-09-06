@@ -56,6 +56,11 @@ figure {
   position: relative;
 }
 
+
+.TextAndPictureSequence--item .TextAndPictureSequence--item-figure  img {
+  max-width: 100%;
+}
+
 @media (min-width: 920px) {
   .TextAndPictureSequence--line {
     position: absolute;
@@ -101,6 +106,10 @@ figure {
 
   .TextAndPictureSequence--item .TextAndPictureSequence--item-figure {
     width: calc(15 * var(--base-size));
+  }
+
+  .TextAndPictureSequence--item .TextAndPictureSequence--item-text {
+    align-self: center;
   }
 
   .TextAndPictureSequence--item:nth-child(even) .TextAndPictureSequence--item-text {
