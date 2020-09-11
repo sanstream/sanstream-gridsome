@@ -5,7 +5,9 @@
         <h1 class="sanstream-heading">
           Ownership 'n stuff
         </h1>
-        <p>One final note, I own and have made everything on this website myself (unless I explicitly tell you otherwise). I have put a lot of effort and love into most of them, so please be a nice person and do not use my things without my permission.</p>
+        <p>One final note, I own and have made everything on this website myself
+          (unless I explicitly tell you otherwise). I have put a lot of effort and love into most of them,
+          so please be a nice person and do not use my things without my permission.</p>
 
         <p>Sanne Peters © 2013 — 2020.</p>
       </section>
@@ -19,6 +21,23 @@
           <StandardLink
             href="/cv/"
           >CV page</StandardLink>.</p>
+
+        <p>
+          I am also active on 
+          <StandardLink
+            href="https://github.com/sanstream"
+            rel="me"
+          >
+            Github
+          </StandardLink>
+          and
+          <StandardLink
+            href="https://twitter.com/sanstreamed"
+            rel="me"
+          >
+            Twitter
+          </StandardLink>
+        </p>
       </section>
     </div>
     <svg width="1440" height="43" viewBox="0 0 1440 43" fill="none" xmlns="http://www.w3.org/2000/svg">
