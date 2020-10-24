@@ -3,7 +3,7 @@
     class="sanstream-block-content"
     :blocks="rawContent"
     :serializers="serializers"
-    projectId="he47alh5"
+    project-id="he47alh5"
     dataset="production"
   />
 </template>
@@ -11,6 +11,7 @@
 <script>
 import VueTypes from 'vue-types'
 import BlockContent from 'sanity-blocks-vue-component'
+// import { CodeExample } from 'sanstream-design-system'
 import StandardLink from '../elements/StandardLink'
 import StandardParagraph from '../elements/StandardParagraph'
 import StandardImage from '../elements/StandardImage'
@@ -33,9 +34,9 @@ export default {
         },
         marks: {
           link: StandardLink,
-        }
+        },
       }
-    }
+    },
   },
 
   props: {

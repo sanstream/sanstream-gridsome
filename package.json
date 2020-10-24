@@ -22,6 +22,7 @@
     "gridsome-source-sanity": "^1.0.5",
     "moment": "^2.26.0",
     "sanity-blocks-vue-component": "^0.1.0",
+    "sanstream-design-system": "^0.1.0",
     "vue-loader": "^15.9.3",
     "vue-styleguidist": "^4.29.1",
     "vue-types": "^1.7.0"
@@ -31,6 +32,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.0.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-plugin-import": "^2.20.2",
+    "vue-template-compiler": "2.6.12"
   }
 }

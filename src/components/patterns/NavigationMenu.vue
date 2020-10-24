@@ -2,11 +2,11 @@
   <menu class="navigation-menu">
     <Button
       variant="textual"
-      :onClick="openDialog"
+      :on-click="openDialog"
     >
       <Icon
         id="Menu"
-        titleText="Open main menu"
+        title-text="Open main menu"
       />
     </Button>
     <ClientOnly>
@@ -20,15 +20,17 @@
           <header>
             <h1
               class="sanstream-heading"
-            >Main menu</h1>
+            >
+              Main menu
+            </h1>
             <Button
               variant="textual"
-              :onClick="closeDialog"
+              :on-click="closeDialog"
               class="navigation-menu--close-dialog"
             >
               <Icon
                 id="CloseCross"
-                titleText="Close main menu"
+                title-text="Close main menu"
               />
             </Button>
           </header>
@@ -39,15 +41,15 @@
             <li
               v-for="page in collectionPages"
               :key="page.href"
-            >  
+            >
               <SpecialLink
                 :href="page.href"
-                triangleToText="right"
-                :hasDarkParent="true"
+                triangle-to-text="right"
+                :has-dark-parent="true"
               >
-                {{page.label}}
+                {{ page.label }}
               </SpecialLink>
-            </li>  
+            </li>
           </ul>
           <ul
             class="navigation-menu-links"
@@ -56,15 +58,15 @@
             <li
               v-for="page in singlePages"
               :key="page.href"
-            >  
+            >
               <SpecialLink
                 :href="page.href"
-                triangleToText="right"
-                :hasDarkParent="true"
+                triangle-to-text="right"
+                :has-dark-parent="true"
               >
-                {{page.label}}
+                {{ page.label }}
               </SpecialLink>
-            </li>  
+            </li>
           </ul>
         </div>
       </dialog>
@@ -72,12 +74,8 @@
   </menu>
 </template>
 
-
 <script>
 import VueTypes from 'vue-types'
-import SpecialLink from '../elements/SpecialLink'
-import Button from '../elements/Button'
-import Icon from '../elements/Icon'
 
 const arrayOfLinks = VueTypes.arrayOf(VueTypes.shape({
   href: VueTypes.string,
@@ -86,11 +84,6 @@ const arrayOfLinks = VueTypes.arrayOf(VueTypes.shape({
 
 export default {
   name: 'NavigationMenu',
-  components: {
-    SpecialLink,
-    Button,
-    Icon,
-  },
   props: {
     collectionPages: arrayOfLinks,
     singlePages: arrayOfLinks,
