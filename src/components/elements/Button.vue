@@ -21,7 +21,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 button {
   display: inline-block;
@@ -32,7 +31,7 @@ button.variant-textual {
   border: 0;
   box-shadow: none;
   background-color: inherit;
-  color: var(--sanstream-orange);
+  color: var(--sanstream-orange-on-white);
 }
 
 button.variant-textual:focus {
@@ -41,12 +40,11 @@ button.variant-textual:focus {
 
 button.variant-textual:focus *,
 button.variant-textual:hover * {
-  filter: 
+  filter:
     drop-shadow(0px 0px 1px var(--sanstream-yellow))
-    drop-shadow(0px 0px 4px var(--sanstream-yellow));
+    drop-shadow(0px 0px 6px var(--sanstream-yellow));
 }
 </style>
-
 
 <docs>
 ```jsx
@@ -56,5 +54,5 @@ button.variant-textual:hover * {
 >
   Textual button
 </Button>
-``` 
+```
 </docs>
