@@ -1,44 +1,51 @@
 <template>
   <header class="PageHeader sanstream-grid-layout-full-viewport">
-    <TopDecoration/>
+    <TopDecoration />
     <nav class="sanstream-grid-layout">
-      <g-link class="PageHeader--logo-link" to="/">
-        <g-image
-          class="PageHeader--logo"
-          src="/logos/logo-emblem.svg" alt="sanstream logo" />
+      <g-link
+        class="PageHeader--logo-link"
+        to="/"
+      >
+        <SanstreamLogo>
+          <title>
+            Click here to go back to the main page.
+          </title>
+        </SanstreamLogo>
       </g-link>
 
       <NavigationMenu
         class="main-navigation"
-        :collectionPages="linksToCollections"
-        :singlePages="linksToSinglePages"
+        :collection-pages="linksToCollections"
+        :single-pages="linksToSinglePages"
       />
     </nav>
   </header>
 </template>
 
 <script>
-import TopDecoration from '~/components/patterns/TopDecoration';
-import NavigationMenu from '~/components/patterns/NavigationMenu';
+import SanstreamLogo from '~/components/elements/SanstreamLogo'
+import TopDecoration from '~/components/patterns/TopDecoration'
+import NavigationMenu from '~/components/patterns/NavigationMenu'
 
 export default {
   name: 'PageHeader',
   components: {
     TopDecoration,
     NavigationMenu,
+    SanstreamLogo,
   },
 
   data () {
     return {
       linksToCollections: [
         {
-          href:"/blog/",
+          href: '/blog/',
           label: 'blog',
         },
       ],
       linksToSinglePages: [
         {
-          href:"/cv/",
+          href: '/cv/',
           label: 'my CV',
         },
       ],
@@ -100,7 +107,7 @@ export default {
     opacity: 0.3;
   }
 
-  .PageHeader--logo-link img {
+  .PageHeader--logo-link svg {
     transform-origin: left center;
     transform: scale(0.8);
   }
