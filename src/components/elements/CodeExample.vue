@@ -10,7 +10,6 @@
 <script>
 import Prism from 'prismjs'
 import VueTypes from 'vue-types'
-Prism.highlightAll()
 
 /**
  * Displays code examples for 'html', 'javascript' and 'css' using
@@ -29,6 +28,12 @@ export default {
       'css',
       'html',
     ]),
+  },
+
+  mounted () {
+    // Prism needs to interact with the DOM,
+    // which is loaded when the component is mounted.
+    Prism.highlightAll()
   },
 
   computed: {
