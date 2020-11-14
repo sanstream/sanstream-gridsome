@@ -146,8 +146,7 @@
 </template>
 
 <script>
-import StandardParagraph from '../components/elements/StandardParagraph'
-import StandardLink from '../components/elements/StandardLink'
+import { StandardParagraph, StandardLink } from 'sanstream-design-system'
 import * as d3 from 'd3'
 
 export default {
