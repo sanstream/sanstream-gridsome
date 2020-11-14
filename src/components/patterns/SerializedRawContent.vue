@@ -11,11 +11,8 @@
 <script>
 import VueTypes from 'vue-types'
 import BlockContent from 'sanity-blocks-vue-component'
-// import { CodeExample } from 'sanstream-design-system'
-import { StandardLink } from 'sanstream-design-system'
-import StandardParagraph from '../elements/StandardParagraph'
+import { StandardLink, StandardParagraph, CodeExample } from 'sanstream-design-system'
 import StandardImage from '../elements/StandardImage'
-import CodeExample from '../elements/CodeExample'
 
 export default {
   name: 'SerializedRawContent',
