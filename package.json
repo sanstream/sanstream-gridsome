@@ -14,23 +14,24 @@
     "d3": "^6.1.0",
     "d3-hierarchy": "^2.0.0",
     "dialog-polyfill": "^0.5.3",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vue": "^7.1.0",
     "gridsome": "^0.7.0",
     "gridsome-source-sanity": "^1.0.5",
     "moment": "^2.26.0",
     "sanity-blocks-vue-component": "^0.1.0",
+    "sanstream-design-system": "^0.2.0",
     "vue-loader": "^15.9.3",
+    "vue-server-renderer": "2.6.11",
     "vue-styleguidist": "^4.29.1",
     "vue-types": "^1.7.0"
   },
   "devDependencies": {
-    "@vue/eslint-config-standard": "^5.1.2",
+    "@bankai/eslint-config": "^0.2.2",
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-plugin-eslint": "^4.3.0",
+    "@vue/cli-service": "^4.3.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.0.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "vue-template-compiler": "2.6.11"
   }
 }

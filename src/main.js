@@ -3,6 +3,7 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from '~/layouts/Default.vue'
+import SanstreamDesignSystem from 'sanstream-design-system'
 
 export default function (Vue, { router, head, isClient, }) {
   head.link.push({
@@ -18,5 +19,6 @@ export default function (Vue, { router, head, isClient, }) {
     body: true,
   })
   // Set default layout as a global component
+  Vue.use(SanstreamDesignSystem)
   Vue.component('Layout', DefaultLayout)
 }

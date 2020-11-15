@@ -97,7 +97,7 @@
 </template>
 
 <script>
-import StandardLink from '~/components/elements/StandardLink'
+import { StandardLink } from 'sanstream-design-system'
 
 export default {
   name: 'PageFooter',
