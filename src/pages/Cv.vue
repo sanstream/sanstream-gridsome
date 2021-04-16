@@ -20,7 +20,7 @@
         </StandardParagraph>
         <StandardParagraph>
           My <strong>hobbies</strong> involve reading, philosophy, making and enjoying art,
-          coding, eating fancy food (I am a full on foodie).
+          coding, eating fancy food (I am a full on foodie) and abusing trees until they become bonsai.
           Most of what I do in my spare time somehow ends up on this website.
         </StandardParagraph>
         <StandardParagraph>
@@ -181,7 +181,11 @@ export default {
           value: 5,
           label: "Excellent at it.",
         },
-      ]
+      ],
+      scale: d3.scalePow()
+        .exponent(2)
+        .domain([1, 5])
+        .range([0.5, 6]),
     }
   },
 
@@ -210,7 +214,7 @@ export default {
             } else return null
           })
           .sum(d => {
-            return (d.node) ? d.node.level : null
+            return (d.node) ? this.scale(d.node.level) : null
           })
 
           const pack = d3.pack()
