@@ -99,8 +99,11 @@
           v-for="category in skillCategories"
           :key="category.id"
         >
-          <figcaption class="sanstream-heading">
-            {{category.label}}
+          <figcaption>
+            <h3 class="sanstream-heading">{{category.label}}</h3>
+            <StandardParagraph v-if="category.explanation">
+              {{category.explanation}}
+            </StandardParagraph>
           </figcaption>
           <svg
             :width="skillsBox.width"
@@ -186,6 +189,31 @@ export default {
         .exponent(2)
         .domain([1, 5])
         .range([0.5, 6]),
+      skillCategoriesMeta: {
+        'frontend tech': {
+          label: 'Frontend technologies',
+          explanation:`
+            Frontend technologies refer the technologies and techniques for building websites.
+            The frontend is comprised out of three basic technologies, the mark-up (HTML5 and/or SVG), layout + styling (CSS) and logic (JavaScript).
+            All other frontend technologies are built upon these.
+            `,
+        },
+        'Process': {
+          label: 'Work processes',
+          explanation:`
+          My work about 20% involves organising and structuring work processes for my team.
+          Most focus either on common ways working or writing effective documentation or mentoring.
+          At the basis of all of these I believe everything is about clear communication.
+          `,
+        },
+        'Design methods': {
+          label: 'Design concepts and methods',
+          explanation:`
+          Even though most of my work is in programming, I often do some work in the design stage of creating applications and tools.
+          In this I specialise in information design (displaying information in the most effective way), which directly relates to data visualisation.
+          `,
+        }
+      }
     }
   },
 
@@ -225,7 +253,8 @@ export default {
           pack(framedAsHierarchy)
           return {
             id: category,
-            label: category,
+            label: this.skillCategoriesMeta[category] ? this.skillCategoriesMeta[category].label : null,
+            explanation: this.skillCategoriesMeta[category] ? this.skillCategoriesMeta[category].explanation : null,
             skills: framedAsHierarchy,
           }
         })
@@ -237,7 +266,7 @@ export default {
     getSkillColour () {
       return d3.scaleLinear()
       .domain([1,5])
-      .range(['#E3E3E3', '#FE9800'])
+      .range(['#E3E3E3', '#99c511'])
       .interpolate(d3.interpolateHcl)
     },
   },
