@@ -13,6 +13,7 @@ import VueTypes from 'vue-types'
 import BlockContent from 'sanity-blocks-vue-component'
 import { StandardLink, StandardParagraph, CodeExample } from 'sanstream-design-system'
 import StandardImage from '../elements/StandardImage'
+import CustomComponent from './CustomComponent'
 
 export default {
   name: 'SerializedRawContent',
@@ -28,6 +29,7 @@ export default {
           block: StandardParagraph,
           image: StandardImage,
           code: CodeExample,
+          customComponent: CustomComponent,
         },
         marks: {
           link: StandardLink,
