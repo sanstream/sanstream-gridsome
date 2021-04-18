@@ -9,7 +9,7 @@
       >
         <h1 class="sanstream-heading">About me / CV</h1>
       </header>
-      <article 
+      <section 
         class="sanstream-fluid-layout"
       >
         <h1 class="sanstream-heading">Introduction</h1>
@@ -21,7 +21,9 @@
         <StandardParagraph>
           My <strong>hobbies</strong> involve reading, philosophy, making and enjoying art,
           coding, eating fancy food (I am a full on foodie) and abusing trees until they become bonsai.
-          Most of what I do in my spare time somehow ends up on this website.
+          Most of what I do in my spare time ends up on
+            <span class="hide-on-screen">my website: <strong>sanstream.nl</strong></span> 
+            <span class="hide-on-print">website</span>.
         </StandardParagraph>
         <StandardParagraph>
           I am <strong>bilingual</strong> in Dutch and English. I speak and write both fluently,
@@ -39,7 +41,7 @@
           I <strong>travel</strong> solely by public transportation and do not drive a car.
           The reason for that is that I have Autism which limits my ability
           to maintain overview within the timeframes needed for safe driving.
-          Luckily it also brings a keen sense for detail and structure, both completely
+          Luckily it also brings a keen sense for detail and structure. Both completely
           useless for driving though.
         </StandardParagraph>
 
@@ -58,8 +60,8 @@
           Twitter
           </StandardLink>.
         </StandardParagraph>
-      </article>
-      <article 
+      </section>
+      <section 
         class="sanstream-fluid-layout"
       >
         <h1 class="sanstream-heading">
@@ -96,6 +98,7 @@
         </ul>
 
         <figure
+          class="skill-bubbles"
           v-for="category in skillCategories"
           :key="category.id"
         >
@@ -143,7 +146,11 @@
             </g>
           </svg>
         </figure>
-      </article>
+
+        <StandardParagraph class="hide-on-screen">
+          Please visit my website: <strong>www.sanstream.nl/cv</strong> to get a more interactive version of this CV.
+        </StandardParagraph>
+      </section>
     </main>
   </Layout>
 </template>
@@ -295,17 +302,34 @@ query {
 </page-query>
 
 <style scoped>
-article svg {
+section svg {
   display: inline-block;
   overflow: visible;
   vertical-align: middle;
 }
 
-article figure {
+section figure {
   margin: 1em 0;
   display: inline-block;
 }
 
-article svg text {
+
+section figure svg {
+  margin: 0 auto;
+  display: block;
+}
+
+section svg text {
+}
+
+@media print {
+  /* section {
+    break-after: page;
+  } */
+
+  figure {
+    border-top:5px solid olive;
+    break-after: page;
+  }
 }
 </style>
