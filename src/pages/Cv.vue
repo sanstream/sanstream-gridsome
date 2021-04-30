@@ -3,7 +3,7 @@
     <main
       v-if="$page && $page.allSkill.edges.length && skillCategories.length"
       class="sanstream-grid-layout-full-viewport"
-    > 
+    >
       <header
         class="sanstream-fluid-layout"
       >
@@ -15,7 +15,7 @@
         <h1 class="sanstream-heading">Introduction</h1>
         <StandardParagraph>
           My <strong>name</strong> is Sanne Peters and allthough,
-          I work in Eindhoven, I life in Venray (the Netherlands, Europe),
+          I work in Eindhoven, but I live in Venray (the Netherlands, Europe),
           because I like to live in the countryside.
         </StandardParagraph>
         <StandardParagraph>
@@ -26,21 +26,22 @@
             <span class="hide-on-print">website</span>.
         </StandardParagraph>
         <StandardParagraph>
-          I am <strong>bilingual</strong> in Dutch and English. I speak and write both fluently,
-          but my accent is a bit all over the place.
-          My Dutch has a non-specific southren tone to it and the English one is a wonderful mix of Southern-English, Ausie and hints of Canadian.
+          I am <strong>bilingual</strong> in Dutch and English and speak both since childhood.
+          I speak and write both really well and as a result my accent is a bit all over the place.
+          My Dutch has a non-specific southren tone to it and the English one is a
+          wonderful mix of Southern-English, Ausie and hints of Canadian.
           In general people have no clue where I am from (I am from the Netherlands, by the way).
         </StandardParagraph>
         <StandardParagraph>
-          I have a <strong>background</strong> in Data-Science and more specifically Bio-Informatics, but I quickly
-          learned that doing science was not really my jam. I realised that in my core I am more of a Builder
-          than a Discoverer. From that I moved into Design and Programming and grew into the wonderful
-          front-end flower I am today.
+          I have a <strong>background</strong> in Data-Science and more specifically Bio-Informatics
+          (graduated in 2008, from the HAN unversity in Nijmegen).
+          I quickly, learned however, that doing science was not really my jam. I realised that in my core I am more of a Builder
+          than a Discoverer. So I moved into Design and Programming (front-end development) and grew into the wonderful
+          'front-end' flower I am today.
         </StandardParagraph>
         <StandardParagraph>
           I <strong>travel</strong> solely by public transportation and do not drive a car.
-          The reason for that is that I have Autism which limits my ability
-          to maintain overview within the timeframes needed for safe driving.
+          Due to my (very-mild) autism cannot maintain visual overview fast enough for safe driving.
           Luckily it also brings a keen sense for detail and structure. Both completely
           useless for driving though.
         </StandardParagraph>
