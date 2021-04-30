@@ -8,6 +8,54 @@
     ]
   },
   {
+    "label": "Planning",
+    "level": 4,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Writing documentation",
+    "level": 5,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Mentoring",
+    "level": 5,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Delegating",
+    "level": 3,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Motivating",
+    "level": 3,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Client relations",
+    "level": 2,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
     "label": "A11y",
     "level": 3,
     "lastUsed": 2021,
@@ -97,9 +145,9 @@
     ]
   },
   {
-    "label": "THREE.js (WebGL)",
-    "level": 2,
-    "lastUsed": 2015,
+    "label": "WebGL",
+    "level": 3,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
@@ -122,7 +170,7 @@
     },
     {
       "label": "Graphic design",
-      "level": 4,
+      "level": 3,
       "lastUsed": 2021,
       "categories": [
         "Design methods"
@@ -176,7 +224,7 @@
         "Design methods",
         "Process"
       ]
-    },  
+    },
     {
       "label": "SVN",
       "level": 1,
@@ -202,15 +250,15 @@
       ]
     },
     {
-      "label": "End-to-end testing",
-      "level": 4,
+      "label": "Automated testing",
+      "level": 3,
       "lastUsed": 2021,
       "categories": [
         "Process"
       ]
     },
     {
-      "label": "Git flow",
+      "label": "GIT-flow",
       "level": 3,
       "lastUsed": 2021,
       "categories": [

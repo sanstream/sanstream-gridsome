@@ -109,9 +109,17 @@
             </StandardParagraph>
           </figcaption>
           <svg
-            :width="skillsBox.width"
-            :height="skillsBox.height"
+            :viewBox="`0 0
+            ${skillsBox.width}
+            ${skillsBox.height}`"
           >
+            <!-- <text>{{category}}</text> -->
+            <circle
+              class="main-circle"
+              :r="skillsBox.width / 2"
+              :cy="skillsBox.width / 2"
+              :cx="skillsBox.width / 2"
+            />
             <g
               v-for="skill in category.skills.children"
               :key="skill.data.node.id"
@@ -120,24 +128,26 @@
                 :r="skill.r"
                 :cy="skill.y"
                 :cx="skill.x"
-                :data-skill-level="skill.value"
-                :fill="getSkillColour(skill.value)"
+                :data-skill-level="skill.data.node.level"
+                stroke-width="2"
+                :stroke="getSkillColour(skill.data.node.level)"
               >
-                <title>{{skill.data.node.label}}: {{skill.value}}</title>
+                <title>{{skill.data.node.label}}: {{skill.data.node.level}}</title>
               </circle>
               <text
                 text-anchor="middle"
-                :y="skill.y - ((skill.data.node.label.split(' ').length / 2) * 16)"
+                :y="skill.y - ((skill.data.node.label.split(' ').length / 2) * (skill.data.node.level * 5))"
                 :x="skill.x"
                 dy="0"
                 class="sanstream-special-text"
               >
+                <!-- v-if="skill.data.node.level > 2" -->
+                <title>{{skill.data.node.label}}: {{skill.data.node.level}}</title>
                 <tspan
                   v-for="(part, index) in skill.data.node.label.split(' ')"
                   :key="index"
-                  :font-size="16 * (skill.value/5)"
-                  text-anchor="middle"
-                  dy="1em"
+                  :font-size="(skill.data.node.level * 3.2)"
+                  dy="1.3em"
                   :x="skill.x"
                 >
                   {{part}}
@@ -167,8 +177,8 @@ export default {
   data () {
     return {
       skillsBox: {
-        width: 400,
-        height: 400,
+        width: 500,
+        height: 500,
       },
       skillsLegend: [
         { 
@@ -198,7 +208,7 @@ export default {
         .range([0.5, 6]),
       skillCategoriesMeta: {
         'frontend tech': {
-          label: 'Frontend technologies',
+          label: 'Frontend technologies and programming',
           explanation:`
             Frontend technologies refer the technologies and techniques for building websites.
             The frontend is comprised out of three basic technologies, the mark-up (HTML5 and/or SVG), layout + styling (CSS) and logic (JavaScript).
@@ -206,11 +216,13 @@ export default {
             `,
         },
         'Process': {
-          label: 'Work processes',
+          label: 'Work processes and management',
           explanation:`
-          My work about 20% involves organising and structuring work processes for my team.
+          My work as team lead involves, for about 20%, organising and structuring work processes
+          for my team.
           Most focus either on common ways working or writing effective documentation or mentoring.
           At the basis of all of these I believe everything is about clear communication.
+          Due to the technical nature of my work a lot of these skills are technical too.
           `,
         },
         'Design methods': {
@@ -229,12 +241,11 @@ export default {
       if (this.$page.allSkill && this.$page.allSkill.edges.length) {
         const allCategoriesFromAllSkills = [].concat(...this.$page.allSkill.edges
           .map(item => item.node.categories))
-        
+
         return [...new Set(allCategoriesFromAllSkills)].map(category => {
-          
           const skillData = this.$page.allSkill.edges
           .filter(item => item.node.categories.find(text => text === category))
-          
+
           const framedAsHierarchy = d3.hierarchy({
             name: 'root',
             children: skillData.map(d => {
@@ -273,7 +284,7 @@ export default {
     getSkillColour () {
       return d3.scaleLinear()
       .domain([1,5])
-      .range(['#E3E3E3', '#99c511'])
+      .range(['#FE9800', '#99c511'])
       .interpolate(d3.interpolateHcl)
     },
   },
@@ -315,11 +326,21 @@ section figure {
 
 
 section figure svg {
-  margin: 0 auto;
+  margin: 2em auto;
   display: block;
+  width: 500px;
+  max-width: 100%;
 }
 
-section svg text {
+section svg .main-circle {
+  fill: var(--colour-light-grey-fill);
+  stroke: var(--colour-middle-grey-fill);
+  stroke-width: 2;
+  opacity: 0.7;
+}
+
+section svg g circle {
+  fill: var(--colour-lightest-colour);
 }
 
 @media print {
