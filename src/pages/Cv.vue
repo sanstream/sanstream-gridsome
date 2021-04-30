@@ -3,43 +3,46 @@
     <main
       v-if="$page && $page.allSkill.edges.length && skillCategories.length"
       class="sanstream-grid-layout-full-viewport"
-    > 
+    >
       <header
         class="sanstream-fluid-layout"
       >
         <h1 class="sanstream-heading">About me / CV</h1>
       </header>
-      <article 
+      <section 
         class="sanstream-fluid-layout"
       >
         <h1 class="sanstream-heading">Introduction</h1>
         <StandardParagraph>
           My <strong>name</strong> is Sanne Peters and allthough,
-          I work in Eindhoven, I life in Venray (the Netherlands, Europe),
+          I work in Eindhoven, but I live in Venray (the Netherlands, Europe),
           because I like to live in the countryside.
         </StandardParagraph>
         <StandardParagraph>
           My <strong>hobbies</strong> involve reading, philosophy, making and enjoying art,
-          coding, eating fancy food (I am a full on foodie).
-          Most of what I do in my spare time somehow ends up on this website.
+          coding, eating fancy food (I am a full on foodie) and abusing trees until they become bonsai.
+          Most of what I do in my spare time ends up on
+            <span class="hide-on-screen">my website: <strong>sanstream.nl</strong></span> 
+            <span class="hide-on-print">website</span>.
         </StandardParagraph>
         <StandardParagraph>
-          I am <strong>bilingual</strong> in Dutch and English. I speak and write both fluently,
-          but my accent is a bit all over the place.
-          My Dutch has a non-specific southren tone to it and the English one is a wonderful mix of Southern-English, Ausie and hints of Canadian.
+          I am <strong>bilingual</strong> in Dutch and English and speak both since childhood.
+          I speak and write both really well and as a result my accent is a bit all over the place.
+          My Dutch has a non-specific southren tone to it and the English one is a
+          wonderful mix of Southern-English, Ausie and hints of Canadian.
           In general people have no clue where I am from (I am from the Netherlands, by the way).
         </StandardParagraph>
         <StandardParagraph>
-          I have a <strong>background</strong> in Data-Science and more specifically Bio-Informatics, but I quickly
-          learned that doing science was not really my jam. I realised that in my core I am more of a Builder
-          than a Discoverer. From that I moved into Design and Programming and grew into the wonderful
-          front-end flower I am today.
+          I have a <strong>background</strong> in Data-Science and more specifically Bio-Informatics
+          (graduated in 2008, from the HAN unversity in Nijmegen).
+          I quickly, learned however, that doing science was not really my jam. I realised that in my core I am more of a Builder
+          than a Discoverer. So I moved into Design and Programming (front-end development) and grew into the wonderful
+          'front-end' flower I am today.
         </StandardParagraph>
         <StandardParagraph>
           I <strong>travel</strong> solely by public transportation and do not drive a car.
-          The reason for that is that I have Autism which limits my ability
-          to maintain overview within the timeframes needed for safe driving.
-          Luckily it also brings a keen sense for detail and structure, both completely
+          Due to my (very-mild) autism cannot maintain visual overview fast enough for safe driving.
+          Luckily it also brings a keen sense for detail and structure. Both completely
           useless for driving though.
         </StandardParagraph>
 
@@ -58,8 +61,8 @@
           Twitter
           </StandardLink>.
         </StandardParagraph>
-      </article>
-      <article 
+      </section>
+      <section 
         class="sanstream-fluid-layout"
       >
         <h1 class="sanstream-heading">
@@ -96,16 +99,28 @@
         </ul>
 
         <figure
+          class="skill-bubbles"
           v-for="category in skillCategories"
           :key="category.id"
         >
-          <figcaption class="sanstream-heading">
-            {{category.label}}
+          <figcaption>
+            <h3 class="sanstream-heading">{{category.label}}</h3>
+            <StandardParagraph v-if="category.explanation">
+              {{category.explanation}}
+            </StandardParagraph>
           </figcaption>
           <svg
-            :width="skillsBox.width"
-            :height="skillsBox.height"
+            :viewBox="`0 0
+            ${skillsBox.width}
+            ${skillsBox.height}`"
           >
+            <!-- <text>{{category}}</text> -->
+            <circle
+              class="main-circle"
+              :r="skillsBox.width / 2"
+              :cy="skillsBox.width / 2"
+              :cx="skillsBox.width / 2"
+            />
             <g
               v-for="skill in category.skills.children"
               :key="skill.data.node.id"
@@ -114,24 +129,26 @@
                 :r="skill.r"
                 :cy="skill.y"
                 :cx="skill.x"
-                :data-skill-level="skill.value"
-                :fill="getSkillColour(skill.value)"
+                :data-skill-level="skill.data.node.level"
+                stroke-width="2"
+                :stroke="getSkillColour(skill.data.node.level)"
               >
-                <title>{{skill.data.node.label}}: {{skill.value}}</title>
+                <title>{{skill.data.node.label}}: {{skill.data.node.level}}</title>
               </circle>
               <text
                 text-anchor="middle"
-                :y="skill.y - ((skill.data.node.label.split(' ').length / 2) * 16)"
+                :y="skill.y - ((skill.data.node.label.split(' ').length / 2) * (skill.data.node.level * 5))"
                 :x="skill.x"
                 dy="0"
                 class="sanstream-special-text"
               >
+                <!-- v-if="skill.data.node.level > 2" -->
+                <title>{{skill.data.node.label}}: {{skill.data.node.level}}</title>
                 <tspan
                   v-for="(part, index) in skill.data.node.label.split(' ')"
                   :key="index"
-                  :font-size="16 * (skill.value/5)"
-                  text-anchor="middle"
-                  dy="1em"
+                  :font-size="(skill.data.node.level * 3.2)"
+                  dy="1.3em"
                   :x="skill.x"
                 >
                   {{part}}
@@ -140,7 +157,11 @@
             </g>
           </svg>
         </figure>
-      </article>
+
+        <StandardParagraph class="hide-on-screen">
+          Please visit my website: <strong>www.sanstream.nl/cv</strong> to get a more interactive version of this CV.
+        </StandardParagraph>
+      </section>
     </main>
   </Layout>
 </template>
@@ -157,8 +178,8 @@ export default {
   data () {
     return {
       skillsBox: {
-        width: 400,
-        height: 400,
+        width: 500,
+        height: 500,
       },
       skillsLegend: [
         { 
@@ -181,7 +202,38 @@ export default {
           value: 5,
           label: "Excellent at it.",
         },
-      ]
+      ],
+      scale: d3.scalePow()
+        .exponent(2)
+        .domain([1, 5])
+        .range([0.5, 6]),
+      skillCategoriesMeta: {
+        'frontend tech': {
+          label: 'Frontend technologies and programming',
+          explanation:`
+            Frontend technologies refer the technologies and techniques for building websites.
+            The frontend is comprised out of three basic technologies, the mark-up (HTML5 and/or SVG), layout + styling (CSS) and logic (JavaScript).
+            All other frontend technologies are built upon these.
+            `,
+        },
+        'Process': {
+          label: 'Work processes and management',
+          explanation:`
+          My work as team lead involves, for about 20%, organising and structuring work processes
+          for my team.
+          Most focus either on common ways working or writing effective documentation or mentoring.
+          At the basis of all of these I believe everything is about clear communication.
+          Due to the technical nature of my work a lot of these skills are technical too.
+          `,
+        },
+        'Design methods': {
+          label: 'Design concepts and methods',
+          explanation:`
+          Even though most of my work is in programming, I often do some work in the design stage of creating applications and tools.
+          In this I specialise in information design (displaying information in the most effective way), which directly relates to data visualisation.
+          `,
+        }
+      }
     }
   },
 
@@ -190,12 +242,11 @@ export default {
       if (this.$page.allSkill && this.$page.allSkill.edges.length) {
         const allCategoriesFromAllSkills = [].concat(...this.$page.allSkill.edges
           .map(item => item.node.categories))
-        
+
         return [...new Set(allCategoriesFromAllSkills)].map(category => {
-          
           const skillData = this.$page.allSkill.edges
           .filter(item => item.node.categories.find(text => text === category))
-          
+
           const framedAsHierarchy = d3.hierarchy({
             name: 'root',
             children: skillData.map(d => {
@@ -210,7 +261,7 @@ export default {
             } else return null
           })
           .sum(d => {
-            return (d.node) ? d.node.level : null
+            return (d.node) ? this.scale(d.node.level) : null
           })
 
           const pack = d3.pack()
@@ -221,7 +272,8 @@ export default {
           pack(framedAsHierarchy)
           return {
             id: category,
-            label: category,
+            label: this.skillCategoriesMeta[category] ? this.skillCategoriesMeta[category].label : null,
+            explanation: this.skillCategoriesMeta[category] ? this.skillCategoriesMeta[category].explanation : null,
             skills: framedAsHierarchy,
           }
         })
@@ -233,7 +285,7 @@ export default {
     getSkillColour () {
       return d3.scaleLinear()
       .domain([1,5])
-      .range(['#E3E3E3', '#FE9800'])
+      .range(['#FE9800', '#99c511'])
       .interpolate(d3.interpolateHcl)
     },
   },
@@ -262,17 +314,44 @@ query {
 </page-query>
 
 <style scoped>
-article svg {
+section svg {
   display: inline-block;
   overflow: visible;
   vertical-align: middle;
 }
 
-article figure {
+section figure {
   margin: 1em 0;
   display: inline-block;
 }
 
-article svg text {
+
+section figure svg {
+  margin: 2em auto;
+  display: block;
+  width: 500px;
+  max-width: 100%;
+}
+
+section svg .main-circle {
+  fill: var(--colour-light-grey-fill);
+  stroke: var(--colour-middle-grey-fill);
+  stroke-width: 2;
+  opacity: 0.7;
+}
+
+section svg g circle {
+  fill: var(--colour-lightest-colour);
+}
+
+@media print {
+  /* section {
+    break-after: page;
+  } */
+
+  figure {
+    border-top:5px solid olive;
+    break-after: page;
+  }
 }
 </style>

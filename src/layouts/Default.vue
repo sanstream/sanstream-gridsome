@@ -1,10 +1,10 @@
 <template>
   <div class="default-layout">
-    <PageHeader />
+    <PageHeader class="hide-on-print"/>
     <main>
       <slot/>
     </main>
-    <PageFooter/>
+    <PageFooter class="hide-on-print"/>
   </div>
 </template>
 
@@ -99,6 +99,26 @@ body > .default-layout  > * {
 .sanstream-grid-layout-full-viewport > * {
   flex: 1 0 auto;
   align-self: center;
+}
+
+@media screen {
+  .hide-on-screen {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    margin: 2cm;
+  }
+
+  .hide-on-print {
+    display: none;
+  }
+
+  .sanstream-fluid-layout {
+    width: auto;
+  }
 }
 
 </style>

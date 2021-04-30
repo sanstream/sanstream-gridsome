@@ -2,15 +2,63 @@
   {
     "label": "HTML5",
     "level": 5,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
   },
   {
-    "label": "A11y",
+    "label": "Planning",
     "level": 4,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Writing documentation",
+    "level": 5,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Mentoring",
+    "level": 5,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Delegating",
+    "level": 3,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Motivating",
+    "level": 3,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "Client relations",
+    "level": 2,
+    "lastUsed": 2021,
+    "categories": [
+      "Process"
+    ]
+  },
+  {
+    "label": "A11y",
+    "level": 3,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech",
       "Design methods"
@@ -19,7 +67,7 @@
   {
     "label": "SVG",
     "level": 5,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
@@ -27,7 +75,7 @@
   {
     "label": "CSS3",
     "level": 5,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
@@ -35,7 +83,7 @@
   {
     "label": "SASS",
     "level": 4,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
@@ -49,17 +97,17 @@
     ]
   },
   {
-    "label": "ES6",
+    "label": "ES6 JavaScript",
     "level": 4,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
   },
   {
     "label": "Vue",
-    "level": 4,
-    "lastUsed": 2020,
+    "level": 5,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
@@ -67,7 +115,7 @@
   {
     "label": "Vuex",
     "level": 5,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
@@ -75,15 +123,15 @@
   {
     "label": "D3",
     "level": 5,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
   },
   {
     "label": "React",
-    "level": 3,
-    "lastUsed": 2020,
+    "level": 4,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
@@ -91,22 +139,22 @@
   {
     "label": "GraphQL",
     "level": 3,
-    "lastUsed": 2020,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
   },
   {
-    "label": "THREE.js (WebGL)",
-    "level": 2,
-    "lastUsed": 2015,
+    "label": "WebGL",
+    "level": 3,
+    "lastUsed": 2021,
     "categories": [
       "frontend tech"
     ]
   },
   {
     "label": "Angular",
-    "level": 3,
+    "level": 1,
     "lastUsed": 2010,
     "categories": [
       "frontend tech"
@@ -114,7 +162,7 @@
   },
     {
       "label": "Interaction design",
-      "level": 4,
+      "level": 3,
       "lastUsed": 2018,
       "categories": [
         "Design methods"
@@ -123,23 +171,23 @@
     {
       "label": "Graphic design",
       "level": 3,
-      "lastUsed": 2010,
+      "lastUsed": 2021,
       "categories": [
         "Design methods"
       ]
     },
     {
       "label": "Design Research",
-      "level": 4,
+      "level": 1,
       "lastUsed": 2013,
       "categories": [
         "Design methods"
       ]
     },
     {
-      "label": "Information design",
+      "label": "Data Visualisation",
       "level": 5,
-      "lastUsed": 2020,
+      "lastUsed": 2021,
       "categories": [
         "Design methods"
       ]
@@ -147,14 +195,14 @@
     {
       "label": "Technical communication",
       "level": 5,
-      "lastUsed": 2020,
+      "lastUsed": 2021,
       "categories": [
         "Design methods"
       ]
     },
     {
       "label": "Content management",
-      "level": 3,
+      "level": 2,
       "lastUsed": 2014,
       "categories": [
         "Design methods"
@@ -162,8 +210,8 @@
     },
     {
       "label": "Information architecture",
-      "level": 4,
-      "lastUsed": 2020,
+      "level": 2,
+      "lastUsed": 2021,
       "categories": [
         "Design methods"
       ]
@@ -171,15 +219,15 @@
     {
       "label": "Design Systems",
       "level": 5,
-      "lastUsed": 2020,
+      "lastUsed": 2021,
       "categories": [
         "Design methods",
         "Process"
       ]
-    },  
+    },
     {
       "label": "SVN",
-      "level": 2,
+      "level": 1,
       "lastUsed": 2013,
       "categories": [
         "Process"
@@ -188,7 +236,7 @@
     {
       "label": "GIT",
       "level": 4,
-      "lastUsed": 2020,
+      "lastUsed": 2021,
       "categories": [
         "Process"
       ]
@@ -196,23 +244,23 @@
     {
       "label": "Linting",
       "level": 4,
-      "lastUsed": 2020,
+      "lastUsed": 2021,
       "categories": [
         "Process"
       ]
     },
     {
-      "label": "End-to-end testing",
-      "level": 4,
-      "lastUsed": 2020,
-      "categories": [
-        "Process"
-      ]
-    },
-    {
-      "label": "Git flow",
+      "label": "Automated testing",
       "level": 3,
-      "lastUsed": 2020,
+      "lastUsed": 2021,
+      "categories": [
+        "Process"
+      ]
+    },
+    {
+      "label": "GIT-flow",
+      "level": 3,
+      "lastUsed": 2021,
       "categories": [
         "Process"
       ]
