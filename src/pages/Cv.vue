@@ -330,14 +330,14 @@ section figure svg {
 }
 
 section svg .main-circle {
-  fill: var(--colour-light-grey-fill);
-  stroke: var(--colour-middle-grey-fill);
+  fill: var(--light-grey-fill);
+  stroke: var(--middle-grey-fill);
   stroke-width: 2;
   opacity: 0.7;
 }
 
 section svg g circle {
-  fill: var(--colour-lightest-colour);
+  fill: var(--lightest-colour);
 }
 
 @media print {
