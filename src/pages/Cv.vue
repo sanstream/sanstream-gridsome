@@ -14,36 +14,34 @@
       >
         <h1 class="sanstream-heading">Introduction</h1>
         <StandardParagraph>
-          My <strong>name</strong> is Sanne Peters and allthough,
-          I work in Eindhoven, but I live in Venray (the Netherlands, Europe),
+          My <strong>name</strong> is Sanne Peters and, although
+          I work in Eindhoven, I live in Venray (the Netherlands, Europe),
           because I like to live in the countryside.
         </StandardParagraph>
         <StandardParagraph>
           My <strong>hobbies</strong> involve reading, philosophy, making and enjoying art,
-          coding, eating fancy food (I am a full on foodie) and abusing trees until they become bonsai.
+          coding, eating fancy food (I am a full on foodie) and scuplting trees until they become bonsai.
           Most of what I do in my spare time ends up on
             <span class="hide-on-screen">my website: <strong>sanstream.nl</strong></span> 
-            <span class="hide-on-print">website</span>.
+            <span class="hide-on-print">this website</span>.
         </StandardParagraph>
         <StandardParagraph>
           I am <strong>bilingual</strong> in Dutch and English and speak both since childhood.
           I speak and write both really well and as a result my accent is a bit all over the place.
-          My Dutch has a non-specific southren tone to it and the English one is a
+          My Dutch has a non-specific southern tone to it and the English one is a
           wonderful mix of Southern-English, Ausie and hints of Canadian.
           In general people have no clue where I am from (I am from the Netherlands, by the way).
         </StandardParagraph>
         <StandardParagraph>
           I have a <strong>background</strong> in Data-Science and more specifically Bio-Informatics
           (graduated in 2008, from the HAN unversity in Nijmegen).
-          I quickly, learned however, that doing science was not really my jam. I realised that in my core I am more of a Builder
+          I quickly learned that doing science did not work for me. I figured out that in my core I am more of a Builder
           than a Discoverer. So I moved into Design and Programming (front-end development) and grew into the wonderful
-          'front-end' flower I am today.
+          <em>front-end flower</em> I am today.
         </StandardParagraph>
         <StandardParagraph>
-          I <strong>travel</strong> solely by public transportation and do not drive a car.
-          Due to my (very-mild) autism cannot maintain visual overview fast enough for safe driving.
-          Luckily it also brings a keen sense for detail and structure. Both completely
-          useless for driving though.
+          I cannot drive a car. I only <strong>travel</strong> by public transportation and bicycle.
+          This gives me plenty of time for reading and sketching.
         </StandardParagraph>
 
         <StandardParagraph>
@@ -70,9 +68,8 @@
         </h1>
 
         <StandardParagraph>
-          Instead of just summarising my skills and expertises I visualised
-          so they can be scanned and reviewed quickly. This way I can easily
-          show what I am about.
+          Instead of just summarising my skills and expertises I visualised them using circles.
+          so they can be scanned and reviewed quickly. Each circle size and color represents the following skill-levels:
         </StandardParagraph>
 
         <ul class="sanstream-no-list-styles">
@@ -114,7 +111,6 @@
             ${skillsBox.width}
             ${skillsBox.height}`"
           >
-            <!-- <text>{{category}}</text> -->
             <circle
               class="main-circle"
               :r="skillsBox.width / 2"
@@ -172,7 +168,7 @@ import * as d3 from 'd3'
 
 export default {
   metaInfo: {
-    title: 'homepage',
+    title: 'CV',
   },
 
   data () {
@@ -219,9 +215,9 @@ export default {
         'Process': {
           label: 'Work processes and management',
           explanation:`
-          My work as team lead involves, for about 20%, organising and structuring work processes
+          As a team lead I am about 20% of my time busy with organising tasks and structuring work processes
           for my team.
-          Most focus either on common ways working or writing effective documentation or mentoring.
+          Most of them focus either on common ways of working, writing effective documentation and mentoring.
           At the basis of all of these I believe everything is about clear communication.
           Due to the technical nature of my work a lot of these skills are technical too.
           `,

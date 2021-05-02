@@ -15,12 +15,12 @@
         <h1 class="sanstream-heading">
           Contact me!
         </h1>
-        <p>Want to work with me or do you want me to do a presentation? Great! Just send me an e-mail to
-          <standardLink href="mailto:sanne.peters2@gmail.com">sanne.peters2[@]gmail.com</standardLink>.</p>
+        <p>Want to work with me, or you want me to give a presentation? Great! Just send me an e-mail to
+          <standardLink href="mailto:sanne.peters2@gmail.com">sanne.peters2@gmail.com</standardLink>.</p>
         <p>If you like to read more about my background head over to my
           <StandardLink
             href="/cv/"
-          >CV page</StandardLink>.</p>
+          >CV</StandardLink>.</p>
 
         <p>
           I am also active on 
