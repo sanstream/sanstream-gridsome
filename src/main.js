@@ -4,6 +4,7 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 import SanstreamDesignSystem from 'sanstream-design-system'
+import 'sanstream-design-system/src/tokens.css'
 
 export default function (Vue, { router, head, isClient, }) {
   head.link.push({
