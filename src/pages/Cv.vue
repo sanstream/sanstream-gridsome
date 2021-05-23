@@ -7,12 +7,13 @@
       <header
         class="sanstream-fluid-layout"
       >
-        <h1 class="sanstream-heading">About me / CV</h1>
+        <h1 class="sanstream-heading hide-on-print">About me / CV</h1>
       </header>
-      <section 
+      <section
         class="sanstream-fluid-layout"
       >
-        <h1 class="sanstream-heading">Introduction</h1>
+        <h1 class="sanstream-heading hide-on-print">Introduction</h1>
+        <h1 class="sanstream-heading hide-on-screen">Curriculum Vitea</h1>
         <StandardParagraph>
           My <strong>name</strong> is Sanne Peters and, although
           I work in Eindhoven, I live in Venray (the Netherlands, Europe),
