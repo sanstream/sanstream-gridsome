@@ -341,13 +341,8 @@ section svg g circle {
 }
 
 @media print {
-  /* section {
-    break-after: page;
-  } */
-
-  figure {
-    border-top:5px solid olive;
-    break-after: page;
+  section:nth-of-type(2) {
+    break-before: page;
   }
 }
 </style>
