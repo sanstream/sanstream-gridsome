@@ -1,11 +1,17 @@
 <template>
-  <svg :viewBox="`0 0 ${edgeSize} ${edgeSize}`">
+  <svg
+  :viewBox="`0 0 ${edgeSize} ${edgeSize}`"
+  :aria-activedescendant="(!!selectedCircleSegment).toString()"
+  @click="toggleSelection($event,null)"
+  >
     <g :transform="`translate(${edgeSize/2},${edgeSize/2})`">
-      <template v-for="(circleSegment, index) of shapes.problemCircleSegments">
+      <template v-for="(circleSegment) of shapes.problemCircleSegments">
         <path
           :key="circleSegment.data.id"
           :d="circleSegment.pathDims"
-          fill="red"
+          class="problem-circle-segment"
+          :aria-selected="(selectedCircleSegment === circleSegment.data.id).toString()"
+          @click="toggleSelection($event, circleSegment.data.id)"
         >
           <title>{{circleSegment.data.name}}</title>
         </path>
@@ -31,6 +37,7 @@ export default {
       problems,
       connections,
       edgeSize,
+      selectedCircleSegment: null,
     }
   },
 
@@ -59,6 +66,36 @@ export default {
         problemCircleSegments,
       }
     }
-  }
+  },
+
+  methods: {
+    toggleSelection (event, id) {
+      event.stopPropagation()
+      if (id === this.selectedCircleSegment) {
+        this.selectedCircleSegment = null
+      } else {
+        this.selectedCircleSegment = id
+      }
+    },
+  },
 }
 </script>
+
+<style scoped lang="scss">
+
+path.problem-circle-segment {
+ fill: var(--colour-middle-grey-fill);
+ cursor: pointer;
+ transition: fill 0.1s;
+}
+
+svg[aria-activedescendant="true"] {
+  .problem-circle-segment[aria-selected="false"] {
+    fill: var(--colour-light-grey-fill);
+  }
+
+  path.problem-circle-segment[aria-selected="true"] {
+    fill: var(--colour-range-red);
+  }
+}
+</style>
