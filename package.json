@@ -17,7 +17,7 @@
     "eslint-plugin-vue": "^7.1.0",
     "gridsome": "^0.7.0",
     "gridsome-source-sanity": "^1.0.5",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "sanity-blocks-vue-component": "^0.1.0",
     "sanstream-design-system": "^0.2.0",
     "vue-loader": "^15.9.3",
