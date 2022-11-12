@@ -5,6 +5,19 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
+  // chainWebpack (config) {
+  //   // Load variables for all vue-files
+  //   const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+
+  //   types.forEach(type => {
+  //     addStyleResource(config.module.rule('sass').oneOf(type))
+  //   })
+
+  //   // or if you use scss
+  //   types.forEach(type => {
+  //     addStyleResource(config.module.rule('scss').oneOf(type))
+  //   })
+  // },
   siteName: 'Studio Sanstream',
   titleTemplate: '%s — Studio Sanstream',
   plugins: [
