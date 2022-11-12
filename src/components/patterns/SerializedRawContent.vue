@@ -11,9 +11,11 @@
 <script>
 import VueTypes from 'vue-types'
 import BlockContent from 'sanity-blocks-vue-component'
-import { StandardLink, StandardParagraph, CodeExample } from 'sanstream-design-system'
+import { StandardLink, CodeExample } from 'sanstream-design-system'
 import StandardImage from '../elements/StandardImage'
 import CustomComponent from './CustomComponent'
+import H2Heading from '../elements/H2Heading'
+import BlockContentSubSerialiser from './BlockContentSubSerialiser.vue'
 
 export default {
   name: 'SerializedRawContent',
@@ -26,7 +28,7 @@ export default {
     serializers () {
       return {
         types: {
-          block: StandardParagraph,
+          block: BlockContentSubSerialiser,
           image: StandardImage,
           code: CodeExample,
           customComponent: CustomComponent,
